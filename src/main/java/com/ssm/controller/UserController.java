@@ -24,7 +24,7 @@ public class UserController {
         return "userList";    
     }    
         
-    @RequestMapping("/showUser")    
+    @RequestMapping("/showUser1")    
     public String showUser(HttpServletRequest request,Model model){    
         int userId = Integer.parseInt(request.getParameter("id"));    
         User user = userService.getUserById(userId);    
