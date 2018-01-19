@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;    
     
 import com.ssm.dto.User;    
-    
+//特教测试    
 public interface IUserDao {    
         
     public User queryByPrimaryKey(Integer id);    
