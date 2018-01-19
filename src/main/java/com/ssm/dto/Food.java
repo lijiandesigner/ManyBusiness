@@ -1,6 +1,6 @@
 package com.ssm.dto;
 
-public class food {
+public class Food {
 	private int id;
 	private String food_brand;
 	private String food_name;
