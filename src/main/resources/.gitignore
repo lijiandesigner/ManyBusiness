@@ -1,2 +1,3 @@
 /log4j.properties
 /jdbc.properties
+/applicationContext.xml
