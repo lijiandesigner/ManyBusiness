@@ -40,7 +40,7 @@ public class UserController {
     @RequestMapping("/addUser")    
     public String addUser(HttpServletRequest request,Model model){    
         User user = new User();
-        user.setId(1);
+        user.setId(2);
         user.setName(String.valueOf(request.getParameter("name")));    
         user.setPassword(String.valueOf(request.getParameter("password")));    
         user.setAge(Integer.parseInt(String.valueOf(request.getParameter("age"))));    
