@@ -13,7 +13,8 @@ import com.ssm.service.IUserService;
     
 @Controller    
 @RequestMapping("/user")    
-public class UserController {    
+public class UserController {  
+	//private String kn="User";
     @Resource    
     private IUserService userService;    
         

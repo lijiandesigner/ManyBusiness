@@ -1,18 +1,17 @@
 package com.ssm.dto;
-
 public class Food {
-	private int id;
+	private Integer id;
 	private String food_brand;
 	private String food_name;
 	private String food_pic;
 	private String food_num;
 	private String food_kucun;
-	private double food_money_true;
-	private double food_money;
+	private Double food_money_true;
+	private Double food_money;
 	private String food_money_yuanjia;
-	private int food_index_show;
-	private int food_zh;
-	public int getId() {
+	private Integer food_index_show;
+	private Integer food_zh;
+	public Integer getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -48,13 +47,13 @@ public class Food {
 	public void setFood_kucun(String food_kucun) {
 		this.food_kucun = food_kucun;
 	}
-	public double getFood_money_true() {
+	public Double getFood_money_true() {
 		return food_money_true;
 	}
 	public void setFood_money_true(double food_money_true) {
 		this.food_money_true = food_money_true;
 	}
-	public double getFood_money() {
+	public Double getFood_money() {
 		return food_money;
 	}
 	public void setFood_money(double food_money) {
@@ -66,13 +65,13 @@ public class Food {
 	public void setFood_money_yuanjia(String food_money_yuanjia) {
 		this.food_money_yuanjia = food_money_yuanjia;
 	}
-	public int getFood_index_show() {
+	public Integer getFood_index_show() {
 		return food_index_show;
 	}
 	public void setFood_index_show(int food_index_show) {
 		this.food_index_show = food_index_show;
 	}
-	public int getFood_zh() {
+	public Integer getFood_zh() {
 		return food_zh;
 	}
 	public void setFood_zh(int food_zh) {
