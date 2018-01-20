@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.ICodeDao">
+	<resultMap id="BaseResultMap" type="com.ssm.dto.Code">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="code_name" property="code_name" jdbcType="VARCHAR" />
+		<result column="code_pic" property="code_pic" jdbcType="VARCHAR" />
+		<result column="code_zh" property=code_zh" jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 查询用户 -->
+	<select id="getAllCode" resultMap="BaseResultMap">
+		select
+		id code_name code_pic code_zh
+		from code
+	</select>
+	<!-- 插入用户 -->
+	<insert id="insertCode" parameterType="com.ssm.dto.Code">
+		insert into code
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="code_name != null">
+				code_name,
+			</if>
+			<if test="code_pic != null">
+				code_pic,
+			</if>
+			<if test="code_zh != null">
+				code_zh,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="code_name != null">
+				#{code_name,jdbcType=VARCHAR},
+			</if>
+			<if test="code_pic != null">
+				#{code_pic,jdbcType=VARCHAR},
+			</if>
+			<if test="code_zh != null">
+				#{code_zh,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+</mapper>

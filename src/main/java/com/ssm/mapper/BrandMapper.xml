@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--tijaoceshi -->
+<mapper namespace="com.ssm.dao.IBrandDao">
+	<resultMap id="BaseResultMapBrand" type="com.ssm.dto.Brand">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="brand_name" property="brand_name" jdbcType="VARCHAR" />
+		<result column="brand_pic" property="brand_pic" jdbcType="VARCHAR" />
+		<result column="brand_num" property="brand_goods" jdbcType="VARCHAR" />
+		<result column="brand_zh" property="brand_zh" jdbcType="INTEGER" />
+	</resultMap>
+	<!-- 查询所有商品   -->
+	<select id="selectAll" resultMap="BaseResultMapBrand">
+		select
+		id brand_name brand_pic brand_num brand_zh
+		from brand
+	</select>
+	<!-- 插入用户 -->
+	<insert id="insertBrand" parameterType="com.ssm.dto.Brand">
+		insert into brand
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="name != null">
+				brand_name,
+			</if>
+			<if test="password != null">
+				brand_pic,
+			</if>
+			<if test="age != null">
+				brand_num,
+			</if>
+			<if test="age != null">
+				brand_zh,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="brand_name != null">
+				#{brand_name,jdbcType=VARCHAR},
+			</if>
+			<if test="brand_pic != null">
+				#{brand_pic,jdbcType=VARCHAR},
+			</if>
+			<if test="brand_num != null">
+				#{brand_num,jdbcType=INTEGER},
+			</if>
+			<if test="brand_zh != null">
+				#{brand_zh,jdbcType=INTEGER},
+			</if>d
+		</trim>
+	</insert>
+</mapper>
