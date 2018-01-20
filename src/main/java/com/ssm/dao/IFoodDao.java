@@ -10,17 +10,17 @@ import com.ssm.dto.Food;
 public interface IFoodDao {
 	
 	/**
-	 * @param _food 商品对象
+	 * @param _food 
 	 */
-	public void insertFood(Food _food);
+	//public void insertFood(Food _food);
 	/**
-	 * @return 返回所有商品对象
+	 * @return 
 	 */
 	public List<Food> selectAll();
 	
 	/**
 	 * @param _id 
-	 * @return 结果商品
+	 * @return 
 	 */
 	public Food selectById(Integer _id);
 	

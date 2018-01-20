@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssm.dao.IFoodDao">
-	<resultMap id="BaseResultMap" type="com.ssm.dto.Food">
+	<resultMap id="BaseResultMapFood" type="com.ssm.dto.Food">
 		<result column="id" property="id" jdbcType="INTEGER" />
 		<result column="food_brand" property="food_brand" jdbcType="VARCHAR" />
 		<result column="food_name" property="food_name" jdbcType="VARCHAR" />
 		<result column="food_pic" property="food_pic" jdbcType="VARCHAR" />
 		<result column="food_num" property="food_num" jdbcType="INTEGER" />
 		<result column="food_kucun" property="food_kucun" jdbcType="INTEGER" />
-		<result column="food_money_true" property="food_money_true" jdbcType="double" />
-		<result column="food_money" property="food_money" jdbcType="double" />
+		<result column="food_money_true" property="food_money_true" jdbcType="DOUBLE" />
+		<result column="food_money" property="food_money" jdbcType="DOUBLE" />
 		<result column="food_money_yuanjia" property="food_money_yuanjia" jdbcType="VARCHAR" />
 		<result column="food_index_show" property="food_index_show" jdbcType="INTEGER" />
 		<result column="food_zh" property="food_zh" jdbcType="INTEGER" />
@@ -18,48 +18,17 @@
 		id, food_brand, food_pic,food_num,food_kucun,food_money_true,food_money,food_money_yuanjia,food_index_show,food_zh
 	</sql>
 	<!-- 查询所有商品 -->
-	<select id="selectAll" resultMap="BaseResultMap">
+	<select id="selectAll" resultMap="BaseResultMapFood">
 		select
 		<include refid="Base_Column_List" />
 		from food
 	</select>
 	<!-- 查询商品通过id -->
-	<select id="selectById" resultMap="BaseResultMap"
+	<select id="selectById" resultMap="BaseResultMapFood"
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
-		from user
+		from food
 		where id = #{_id,jdbcType=INTEGER}
 	</select>
-	<insert id="insertUser" parameterType="com.ssm.dto.Food">
-		insert into user
-		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="id != null">
-				id,
-			</if>
-			<if test="name != null">
-				name,
-			</if>
-			<if test="password != null">
-				password,
-			</if>
-			<if test="age != null">
-				age,
-			</if>
-		</trim>
-		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="id != null">
-				#{id,jdbcType=INTEGER},
-			</if>
-			<if test="name != null">
-				#{name,jdbcType=VARCHAR},
-			</if>
-			<if test="password != null">
-				#{password,jdbcType=VARCHAR},
-			</if>
-			<if test="age != null">
-				#{age,jdbcType=INTEGER},
-			</if>
-		</trim>
-	</insert>
 </mapper>
