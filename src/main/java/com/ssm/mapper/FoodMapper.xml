@@ -2,17 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssm.dao.IFoodDao">
 	<resultMap id="BaseResultMap" type="com.ssm.dto.Food">
-		<result column="id" property="id" jdbcType="INT" />
+		<result column="id" property="id" jdbcType="INTEGER" />
 		<result column="food_brand" property="food_brand" jdbcType="VARCHAR" />
 		<result column="food_name" property="food_name" jdbcType="VARCHAR" />
 		<result column="food_pic" property="food_pic" jdbcType="VARCHAR" />
-		<result column="food_num" property="food_num" jdbcType="INT" />
-		<result column="food_kucun" property="food_kucun" jdbcType="INT" />
+		<result column="food_num" property="food_num" jdbcType="INTEGER" />
+		<result column="food_kucun" property="food_kucun" jdbcType="INTEGER" />
 		<result column="food_money_true" property="food_money_true" jdbcType="double" />
 		<result column="food_money" property="food_money" jdbcType="double" />
 		<result column="food_money_yuanjia" property="food_money_yuanjia" jdbcType="VARCHAR" />
-		<result column="food_index_show" property="food_index_show" jdbcType="INT" />
-		<result column="food_zh" property="food_zh" jdbcType="INT" />
+		<result column="food_index_show" property="food_index_show" jdbcType="INTEGER" />
+		<result column="food_zh" property="food_zh" jdbcType="INTEGER" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		id, food_brand, food_pic,food_num,food_kucun,food_money_true,food_money,food_money_yuanjia,food_index_show,food_zh
