@@ -26,7 +26,7 @@
 	<!-- 查询商品通过id -->
 	<select id="selectById" resultMap="BaseResultMapFood"
 		parameterType="java.lang.Integer">
-		select  
+		select
 		<include refid="Base_Column_List" />
 		from food
 		where id = #{_id,jdbcType=INTEGER}
