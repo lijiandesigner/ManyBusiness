@@ -10,7 +10,7 @@
 		<result column="brand_zh" property="brand_zh" jdbcType="INTEGER" />
 	</resultMap>
 	<!-- 查询所有商品   -->
-	<select id="selectAll" resultMap="BaseResultMapBrand">
+	<select id="selectAllBrand" resultMap="BaseResultMapBrand">
 		select
 		id brand_name brand_pic brand_num brand_zh
 		from brand

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--tijaoceshi -->
+<mapper namespace="com.ssm.dao.IDingdanDao">
+	<resultMap id="BaseResultMapDingdan" type="com.ssm.dto.Dingdan">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="dingdan_openid" property="dingdan_openid" jdbcType="VARCHAR" />
+		<result column="dingdan_phone" property="dingdan_phone" jdbcType="VARCHAR" />
+		<result column="dingdan_name" property="dingdan_name" jdbcType="VARCHAR" />
+		<result column="dingdan_sex" property="dingdan_sex" jdbcType="VARCHAR" />
+		<result column="dingdan_dizhi" property="dingdan_dizhi" jdbcType="VARCHAR" />
+		<result column="dingdan_menpai" property="dingdan_menpai" jdbcType="VARCHAR" />
+		<result column="dingdan_remark" property="dingdan_remark" jdbcType="VARCHAR" />
+		<result column="dingdan_num" property="dingdan_num" jdbcType="INTEGER" />
+		<result column="dingdan_shops" property="dingdan_shops" jdbcType="VARCHAR" />
+		<result column="dingdan_spec" property="dingdan_spec" jdbcType="VARCHAR" />
+		<result column="dingdan_moneys" property="dingdan_moneys" jdbcType="VARCHAR" />
+		<result column="dingdan_money" property="dingdan_money" jdbcType="INTEGER" />
+		<result column="dingdan_profit" property="dingdan_profit" jdbcType="INTEGER" />
+		<result column="dingdan_buff" property="dingdan_buff" jdbcType="VARCHAR" />
+		<result column="dingdan_buff2" property="dingdan_buff2" jdbcType="VARCHAR" />
+		<result column="dingdan_table" property="dingdan_bable" jdbcType="INTEGER" />
+		<result column="dingdan_time_s" property="dingdan_time_s" jdbcType="INTEGER" />
+		<result column="dingdan_time_e" property="dingdan_time_e" jdbcType="INTEGER" />
+		<result column="dingdan_zh" property="dingdan_zh" jdbcType="INTEGER" />
+	</resultMap>
+	<select id="selectAll" resultMap="BaseResultMapDingdan">
+		select
+		id dingdan_openid dingdan_phone dingdan_name dingdan_sex dingdan_dizhi dingdan_menpai dingdan_remark dingdan_num dingdan_shops dingdan_spec dingdan_moneys dingdan_money dingdan_profit dingdan_buff dingdan_buff2 dingdan_table dingdan_time_s dingdan_time_e dingdan_zh
+		from dingdan
+	</select>
+	<!-- 插入用户 -->
+	<insert id="insertDingdan" parameterType="com.ssm.dto.Dingdan">
+		insert into dingdan
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="dingdan_openid != null">
+				dingdan_openid,
+			</if>
+			<if test="dingdan_phone != null">
+				dingdan_phone,
+			</if>
+			<if test="dingdan_name != null">
+				dingdan_name,
+			</if>
+			<if test="dingdan_sex != null">
+				dingdan_sex,
+			</if>
+			<if test="dingdan_dizhi != null">
+				dingdan_dizhi,
+			</if>
+			<if test="dingdan_menpai != null">
+				dingdan_menpai,
+			</if>
+			<if test="dingdan_remark != null">
+				dingdan_remark,
+			</if>
+			<if test="dingdan_num != null">
+				dingdan_num,
+			</if>
+			<if test="dingdan_shops != null">
+				dingdan_shops,
+			</if>
+			<if test="dingdan_spec != null">
+				dingdan_spec,
+			</if>
+			<if test="dingdan_moneys != null">
+				dingdan_moneys,
+			</if>
+			<if test="dingdan_money != null">
+				dingdan_money,
+			</if>
+			<if test="dingdan_profit != null">
+				dingdan_profit,
+			</if>
+			<if test="dingdan_buff != null">
+				dingdan_buff,
+			</if>
+			<if test="dingdan_buff2 != null">
+				dingdan_buff2,
+			</if>
+			<if test="dingdan_bable != null">
+				dingdan_table,
+			</if>
+			<if test="dingdan_time_s != null">
+				dingdan_time_s,
+			</if>
+			<if test="dingdan_time_e != null">
+				dingdan_time_e,
+			</if>
+			<if test="dingdan_zh != null">
+				dingdan_zh,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+	
+			<if test="dingdan_openid != null">
+				#{dingdan_openid,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_phone != null">
+				#{dingdan_phone,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_name != null">
+				#{dingdan_name,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_sex != null">
+				#{dingdan_sex,jdbcType=INTEGER},
+			</if>
+			<if test="dingdan_dizhi != null">
+				#{dingdan_dizhi,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_menpai != null">
+				#{dingdan_menpai,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_remark != null">
+				#{dingdan_remark,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_num != null">
+				#{dingdan_num,jdbcType=INTEGER},
+			</if>
+			<if test="dingdan_shops != null">
+				#{dingdan_shops,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_spec != null">
+				#{dingdan_spec,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_moneys != null">
+				#{dingdan_moneys,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_money != null">
+				#{dingdan_money,jdbcType=INTEGER},
+			</if>
+			
+			dingdan_profit dingdan_buff dingdan_buff2 dingdan_table dingdan_time_s dingdan_time_e dingdan_zh
+			<if test="dingdan_profit != null">
+				#{dingdan_profit,jdbcType=INTEGER},
+			</if>
+			<if test="dingdan_buff != null">
+				#{dingdan_buff,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_buff2 != null">
+				#{dingdan_buff2,jdbcType=VARCHAR},
+			</if>
+			<if test="dingdan_table != null">
+				#{dingdan_table,jdbcType=INTEGER},
+			</if>
+			<if test="dingdan_time_s != null">
+				#{dingdan_time_s,jdbcType=INTEGER},
+			</if>
+			<if test="dingdan_moneys != null">
+				#{dingdan_time_e,jdbcType=INTEGER},
+			</if>
+			<if test="dingdan_money != null">
+				#{dingdan_money,jdbcType=INTEGER},
+			</if>
+			<if test="dingdan_zh != null">
+				#{dingdan_zh,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+</mapper>
