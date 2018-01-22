@@ -48,5 +48,10 @@ public class UserController {
         userService.addUser(user);    
         return "redirect:/user/userList";    
     }  
+    
+    @RequestMapping("/test")    
+    public String test(){    
+        return "aaa";    
+    }    
    
 }    
