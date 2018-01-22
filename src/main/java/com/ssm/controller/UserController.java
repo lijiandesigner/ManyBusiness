@@ -2,16 +2,18 @@ package com.ssm.controller;
 
 import java.util.List;
 import javax.annotation.Resource;    
-import javax.servlet.http.HttpServletRequest;    
-    
-import org.springframework.stereotype.Controller;    
+import javax.servlet.http.HttpServletRequest;
+
+
+
 import org.springframework.ui.Model;    
-import org.springframework.web.bind.annotation.RequestMapping;    
-    
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.ssm.dto.User;    
 import com.ssm.service.IUserService;    
     
-@Controller    
+@RestController    
 @RequestMapping("/user")    
 public class UserController {  
 	//private String kn="User";
@@ -49,9 +51,18 @@ public class UserController {
         return "redirect:/user/userList";    
     }  
     
+    @RequestMapping("/login")    
+    public String login(){    
+    	 /*return "redirect:/brand/all";*/
+    	 System.out.println("Ìø×ªÊ§°Ü");
+    	 return "/brand/all";
+    }
+    
     @RequestMapping("/test")    
     public String test(){    
-        return "aaa";    
-    }    
+    	 /*return "redirect:/brand/all";*/
+    	 System.out.println("Ìø×ªÊ§°Ü");
+    	 return "aaa";   	 
+    }
    
 }    
