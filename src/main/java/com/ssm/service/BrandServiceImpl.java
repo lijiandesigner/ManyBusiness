@@ -19,6 +19,6 @@ public class BrandServiceImpl implements IBrandService {
 	
 	@Override    
     public List<Brand> selectAllBrand() {    
-        return brandDao.getAllBrand();    
+        return brandDao.selectAllBrand();    
     } 
 }

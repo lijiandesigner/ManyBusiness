@@ -12,7 +12,7 @@
 	<!-- 查询所有商品   -->
 	<select id="selectAllBrand" resultMap="BaseResultMapBrand">
 		select
-		id brand_name brand_pic brand_num brand_zh
+		id,brand_name,brand_pic,brand_num,brand_zh
 		from brand
 	</select>
 	<!-- 插入用户 -->

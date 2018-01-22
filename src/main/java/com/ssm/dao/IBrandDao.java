@@ -6,7 +6,7 @@ import com.ssm.dto.Brand;
 
 public interface IBrandDao {
 	
-	 public List<Brand> getAllBrand(); 
+	 public List<Brand> selectAllBrand(); 
 	 
 	 public void insertBrand(Brand brand);
 }

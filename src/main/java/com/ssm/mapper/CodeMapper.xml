@@ -5,12 +5,12 @@
 		<result column="id" property="id" jdbcType="INTEGER" />
 		<result column="code_name" property="code_name" jdbcType="VARCHAR" />
 		<result column="code_pic" property="code_pic" jdbcType="VARCHAR" />
-		<result column="code_zh" property=code_zh" jdbcType="VARCHAR" />
+		<result column="code_zh" property="code_zh" jdbcType="INTEGER" />
 	</resultMap>
 	<!-- 查询用户 -->
 	<select id="getAllCode" resultMap="BaseResultMap">
 		select
-		id code_name code_pic code_zh
+		id,code_name,code_pic,code_zh
 		from code
 	</select>
 	<!-- 插入用户 -->
