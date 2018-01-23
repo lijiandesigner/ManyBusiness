@@ -16,8 +16,7 @@ public class Dingdan {
 	private String dingdan_moneys;
 	private Integer dingdan_money;
 	private Integer dingdan_profit;
-	private String dingdan_buff;
-	private String dingdan_buff2;
+	private Integer dingdan_buff;
 	private Integer dingdan_table;
 	private Integer dingdan_time_s;
 	private Integer dingdan_time_e;
@@ -112,22 +111,19 @@ public class Dingdan {
 	public void setDingdan_profit(Integer dingdan_profit) {
 		this.dingdan_profit = dingdan_profit;
 	}
-	public String getDingdan_buff() {
+	public Integer getDingdan_buff() {
 		return dingdan_buff;
 	}
-	public void setDingdan_buff(String dingdan_buff) {
+	public void setDingdan_buff(Integer dingdan_buff) {
 		this.dingdan_buff = dingdan_buff;
 	}
-	public String getDingdan_buff2() {
-		return dingdan_buff2;
-	}
-	public void setDingdan_buff2(String dingdan_buff2) {
-		this.dingdan_buff2 = dingdan_buff2;
-	}
 	public Integer getDingdan_table() {
+		
 		return dingdan_table;
 	}
 	public void setDingdan_table(Integer dingdan_table) {
+		
+		
 		this.dingdan_table = dingdan_table;
 	}
 	public Integer getDingdan_time_s() {

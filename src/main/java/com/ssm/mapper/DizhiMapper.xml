@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.IDizhiDao">
+	<resultMap id="BaseResultMap" type="com.ssm.dto.Dizhi">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="dizhi_name" property="dizhi_name" jdbcType="VARCHAR" />
+		<result column="dizhi_sex" property="dizhi_sex" jdbcType="VARCHAR" />
+		<result column="dizhi_phone" property="dizhi_phone" jdbcType="VARCHAR" />
+		<result column="dizhi_dizhi" property="dizhi_dizhi" jdbcType="VARCHAR" />
+		<result column="dizhi_menpai" property="dizhi_menpai" jdbcType="VARCHAR" />
+		<result column="dizhi_select" property="dizhi_select" jdbcType="VARCHAR" />
+		<result column="dizhi_zh" property="dizhi_zh" jdbcType="INTEGER" />
+	</resultMap>
+	<!-- 查询用户 -->
+	<select id="getAllDizhi" resultMap="BaseResultMap">
+		select
+		id,dizhi_name,dizhi_sex,dizhi_phone,dizhi_dizhi,dizhi_menpai,dizhi_select,dizhi_zh
+		from dizhi
+	</select>
+	<!-- 插入用户 -->
+	<insert id="inserDizhi" parameterType="com.ssm.dto.Dizhi">
+		insert into dizhi
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="dizhi_name != null">
+				dizhi_name,
+			</if>
+			<if test="dizhi_sex != null">
+				dizhi_sex,
+			</if>
+			<if test="dizhi_phone != null">
+				dizhi_phone,
+			</if>
+			
+			
+			<if test="dizhi_dizhi != null">
+				dizhi_dizhi,
+			</if>
+			<if test="dizhi_menpai != null">
+				dizhi_menpai,
+			</if>
+			<if test="dizhi_select != null">
+				dizhi_select,
+			</if>
+			<if test="dizhi_zh != null">
+				dizhi_zh,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="dizhi_name != null">
+				#{dizhi_name,jdbcType=VARCHAR},
+			</if>
+			<if test="dizhi_sex != null">
+				#{dizhi_sex,jdbcType=VARCHAR},
+			</if>
+			<if test="dizhi_phone != null">
+				#{dizhi_phone,jdbcType=VARCHAR},
+			</if>
+			<if test="dizhi_dizhi != null">
+				#{dizhi_dizhi,jdbcType=VARCHAR},
+			</if>
+			<if test="dizhi_menpai != null">
+				#{dizhi_menpai,jdbcType=VARCHAR},
+			</if>
+			<if test="dizhi_select != null">
+				#{dizhi_select,jdbcType=VARCHAR},
+			</if>
+			<if test="dizhi_zh != null">
+				#{dizhi_zh,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+</mapper>

@@ -21,5 +21,6 @@ public class DingdanServiceImpl implements IDingdanService {
 	@Override    
     public List<Dingdan> getAllDingdan() {    
         return dingdanDao.getAllDingdan();    
+        
     } 
 }

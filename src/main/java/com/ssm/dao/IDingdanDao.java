@@ -7,4 +7,5 @@ public interface IDingdanDao {
 	 public List<Dingdan> getAllDingdan(); 
 	 
 	 public void insertDingdan(Dingdan Dingdan);
+	 
 }

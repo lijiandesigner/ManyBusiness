@@ -26,9 +26,10 @@
 	</resultMap>
 	<select id="selectAll" resultMap="BaseResultMapDingdan">
 		select
-		id dingdan_openid dingdan_phone dingdan_name dingdan_sex dingdan_dizhi dingdan_menpai dingdan_remark dingdan_num dingdan_shops dingdan_spec dingdan_moneys dingdan_money dingdan_profit dingdan_buff dingdan_buff2 dingdan_table dingdan_time_s dingdan_time_e dingdan_zh
+		id,dingdan_openid,dingdan_phone,dingdan_name,dingdan_sex,dingdan_dizhi,dingdan_menpai,dingdan_remark,dingdan_num,dingdan_shops,dingdan_spec,dingdan_moneys,dingdan_money,dingdan_profit,dingdan_buff,dingdan_buff2,dingdan_table,dingdan_time_s,dingdan_time_e,dingdan_zh
 		from dingdan
 	</select>
+	
 	<!-- 插入用户 -->
 	<insert id="insertDingdan" parameterType="com.ssm.dto.Dingdan">
 		insert into dingdan

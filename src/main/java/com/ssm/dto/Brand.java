@@ -2,13 +2,20 @@ package com.ssm.dto;
 
 public class Brand {
 	private Integer id;
+	private String brand_name;
+	private String brand_pic;
+	private Integer brand_num;
+	private String brand_goods;
+	private Integer brand_zh;
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
+		
 		this.id = id;
 	}
 	public String getBrand_name() {
+		
 		return brand_name;
 	}
 	public void setBrand_name(String brand_name) {
@@ -32,16 +39,12 @@ public class Brand {
 	public void setBrand_goods(String brand_goods) {
 		this.brand_goods = brand_goods;
 	}
-	public String getBrand_zh() {
+	public Integer getBrand_zh() {
 		return brand_zh;
 	}
-	public void setBrand_zh(String brand_zh) {
+	public void setBrand_zh(Integer brand_zh) {
 		this.brand_zh = brand_zh;
 	}
-	private String brand_name;
-	private String brand_pic;
-	private Integer brand_num;
-	private String brand_goods;
-	private String brand_zh;
+	
 
 }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.IZhDao">
+	<resultMap id="BaseResultMap" type="com.ssm.dto.Zh">
+		<result column="zh_id" property="zh_id" jdbcType="INTEGER" />
+		<result column="zh_zh" property="zh_zh" jdbcType="VARCHAR" />
+		<result column="zh_pwd" property="zh_pwd" jdbcType="VARCHAR" />
+		<result column="zh_time" property="zh_time" jdbcType="INTEGER" />
+		<result column="zh_phone" property="zh_phone" jdbcType="VARCHAR" />
+		<result column="zh_token" property="zh_token" jdbcType="VARCHAR" />
+		<result column="zh_useful_time" property="zh_useful_time" jdbcType="INTEGER" />
+		<result column="zh_appid" property="zh_appid" jdbcType="VARCHAR" />
+		<result column="zh_appsecre" property="zh_appsecre" jdbcType="VARCHAR" />
+		<result column="zh_shopzh" property="zh_shopzh" jdbcType="VARCHAR" />
+		<result column="zh_key" property="zh_key" jdbcType="INTEGER" />
+	</resultMap>
+	<!-- 查询用户 -->
+	<select id="getAllZh" resultMap="BaseResultMap">
+		select
+		zh_id,zh_zh,zh_pwd,zh_time,zh_phone,zh_token,zh_useful_time,zh_appid,zh_appsecre,zh_shopzh,zh_key
+		from zh
+	</select>
+	
+	
+	<!-- 插入用户 -->
+	<insert id="inserZh" parameterType="com.ssm.dto.Zh">
+		insert into zh
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="zh_id != null">
+				zh_id,
+			</if>
+			<if test="zh_zh != null">
+				zh_zh,
+			</if>
+			<if test="zh_pwd != null">
+				zh_pwd,
+			</if>
+			<if test="zh_time != null">
+				zh_time,
+			</if>
+			<if test="zh_phone != null">
+				zh_phone,
+			</if>
+			<if test="zh_token != null">
+				zh_token,
+			</if>
+			<if test="zh_useful_time != null">
+				zh_useful_time,
+			</if>
+			<if test="zh_appid != null">
+				zh_appid,
+			</if>
+			<if test="zh_appsecre != null">
+				zh_appsecre,
+			</if>
+			<if test="zh_shopzh != null">
+				zh_shopzh,
+			</if>
+			<if test="zh_key != null">
+				zh_key,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="zh_id != null">
+				#{zh_id,jdbcType=INTEGER},
+			</if>
+			<if test="zh_zh_name != null">
+				#{zh_zh_name,jdbcType=VARCHAR},
+			</if>
+			<if test="zh_pwd != null">
+				#{zh_pwd,jdbcType=VARCHAR},
+			</if>
+			<if test="zh_time != null">
+				#{zh_time,jdbcType=INTEGER},
+			</if>
+			<if test="zh_phone != null">
+				#{zh_phone,jdbcType=VARCHAR},
+			</if>
+			<if test="zh_token != null">
+				#{zh_token,jdbcType=VARCHAR},
+			</if>
+			<if test="zh_useful_time != null">
+				#{zh_useful_time,jdbcType=INTEGER},
+			</if>
+			<if test="zh_appid != null">
+				#{zh_appid,jdbcType=INTEGER},
+			</if>
+			<if test="zh_appsecre != null">
+				#{zh_appsecre,jdbcType=VARCHAR},
+			</if>
+			<if test="zh_shopzh != null">
+				#{zh_shopzh,jdbcType=VARCHAR},
+			</if>
+			<if test="zh_key != null">
+				#{zh_key,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+</mapper>

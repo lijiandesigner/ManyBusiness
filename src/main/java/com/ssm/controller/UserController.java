@@ -42,7 +42,7 @@ public class UserController {
         return "userinfo";    
     }    
         
-    @RequestMapping("/addUser")    
+   /* @RequestMapping("/addUser")    
     public String addUser(HttpServletRequest request,Model model){    
         User user = new User();
         user.setId(2);
@@ -51,6 +51,9 @@ public class UserController {
         user.setAge(Integer.parseInt(String.valueOf(request.getParameter("age"))));    
         userService.addUser(user);    
         return "redirect:/user/userList";    
+<<<<<<< HEAD
+    }*/  
+=======
     }  
     
     @RequestMapping("/login")    
@@ -65,5 +68,6 @@ public class UserController {
     	User itemsCustom =  userService.getUserById(id);
 		return itemsCustom;
 	}
+>>>>>>> branch 'master' of https://github.com/lijiandesigner/ManyBusiness
    
 }    

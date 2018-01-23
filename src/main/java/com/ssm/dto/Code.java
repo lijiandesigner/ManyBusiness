@@ -2,6 +2,9 @@ package com.ssm.dto;
 
 public class Code {
 	private Integer id;
+	private String code_name;
+	private String code_pic;
+	private Integer code_zh;
 	public Integer getId() {
 		return id;
 	}
@@ -12,6 +15,7 @@ public class Code {
 		return code_name;
 	}
 	public void setCode_name(String code_name) {
+		
 		this.code_name = code_name;
 	}
 	public String getCode_pic() {
@@ -20,15 +24,13 @@ public class Code {
 	public void setCode_pic(String code_pic) {
 		this.code_pic = code_pic;
 	}
-	public String getCode_zh() {
+	public Integer getCode_zh() {
 		return code_zh;
 	}
-	public void setCode_zh(String code_zh) {
+	public void setCode_zh(Integer code_zh) {
 		this.code_zh = code_zh;
 	}
-	private String code_name;
-	private String code_pic;
-	private String code_zh;
+	
 	
 
 }
