@@ -59,6 +59,11 @@ public class UserController {
     	
     	
     };
+    
+    @RequestMapping("/buzhi")
+    public String buzhi() {
+    	return "dd";
+    }
   //---------------------------bzwh---------------------------------------
   
 //--------------------------hee-----------------------------------   
