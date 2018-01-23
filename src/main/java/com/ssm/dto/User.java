@@ -1,6 +1,7 @@
 package com.ssm.dto;
 
 public class User {
+<<<<<<< HEAD
 	private Integer id;    
 	 private String openid;    
 	 private String user_name; 
@@ -102,4 +103,41 @@ public class User {
 	}
 	
   
+=======
+	 private Integer id;    
+	    
+	    private String name;    
+	    
+	    private String password; 
+	    private Integer age;
+	    public void setAge(Integer _age) {
+	    		age=_age;
+	    }
+	    
+	    public Integer getId() {    
+	        return id;    
+	    }    
+	    
+	    public void setId(Integer id) {    
+	        this.id = id;    
+	    }    
+	    
+	    public String getName() {    
+	        return name;    
+	    }    
+	    
+	    public void setName(String name) {    
+	        this.name = name;    
+	    }    
+	    
+	    public String getPassword() {    
+	        return password;    
+	    }    
+	    
+	    public void setPassword(String password) {    
+	        this.password = password == null ? null : password.trim();    
+	    }
+
+
+>>>>>>> branch 'master' of https://github.com/lijiandesigner/ManyBusiness
 }

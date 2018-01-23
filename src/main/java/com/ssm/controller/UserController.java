@@ -2,16 +2,21 @@ package com.ssm.controller;
 
 import java.util.List;
 import javax.annotation.Resource;    
-import javax.servlet.http.HttpServletRequest;    
-    
-import org.springframework.stereotype.Controller;    
-import org.springframework.ui.Model;    
-import org.springframework.web.bind.annotation.RequestMapping;    
-    
-import com.ssm.dto.User;    
+import javax.servlet.http.HttpServletRequest;
+
+
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ssm.dto.User;
+import com.ssm.jiekou.Msg;
 import com.ssm.service.IUserService;    
     
-@Controller    
+@RestController    
 @RequestMapping("/user")    
 public class UserController {  
 	//private String kn="User";
@@ -47,6 +52,23 @@ public class UserController {
         user.setAge(Integer.parseInt(String.valueOf(request.getParameter("age"))));    
         userService.addUser(user);    
         return "redirect:/user/userList";    
+<<<<<<< HEAD
     }*/  
+=======
+    }  
+    
+    @RequestMapping("/login")    
+    public String login(){    
+    	 /*return "redirect:/brand/all";*/
+    	 System.out.println("Ìø×ªÊ§°Ü");
+    	 return "/brand/all";
+    }
+    
+    @RequestMapping("/test/{id}")    
+    public @ResponseBody User findItemsById(@PathVariable("id") Integer id) throws Exception{
+    	User itemsCustom =  userService.getUserById(id);
+		return itemsCustom;
+	}
+>>>>>>> branch 'master' of https://github.com/lijiandesigner/ManyBusiness
    
 }    

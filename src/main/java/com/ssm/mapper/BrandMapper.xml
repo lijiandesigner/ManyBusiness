@@ -51,7 +51,7 @@
 			</if>
 			<if test="brand_zh != null">
 				#{brand_zh,jdbcType=INTEGER},
-			</if>d
+			</if>
 		</trim>
 	</insert>
 </mapper>
