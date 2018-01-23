@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssm.dto.User;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/lijiandesigner/ManyBusiness
 import com.ssm.service.IUserService;    
     
 @RestController    
@@ -55,8 +52,12 @@ public class UserController {
         user.setAge(Integer.parseInt(String.valueOf(request.getParameter("age"))));    
         userService.addUser(user);    
         return "redirect:/user/userList";    
-<<<<<<< HEAD
+
     }*/  
+    public void lo() {
+    	
+    	
+    };
 
   
     
