@@ -6,8 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 
 
 
-import org.springframework.ui.Model;    
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssm.dto.User;
@@ -59,13 +61,10 @@ public class UserController {
     	 return "/brand/all";
     }
     
-    @RequestMapping("/test")    
-    public void test(){    
-    	 /*return "redirect:/brand/all";*/
-    	 System.out.println("Ìø×ªÊ§°Ü");
-    	 Msg listObject = new Msg();  
-         listObject.setItems(); 
-    	    	 
-    }
+    @RequestMapping("/test/{id}")    
+    public @ResponseBody User findItemsById(@PathVariable("id") Integer id) throws Exception{
+    	User itemsCustom =  userService.getUserById(id);
+		return itemsCustom;
+	}
    
 }    
