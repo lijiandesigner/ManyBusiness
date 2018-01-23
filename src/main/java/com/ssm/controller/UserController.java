@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ssm.dto.User;
 
@@ -68,20 +69,22 @@ public class UserController {
   
 //--------------------------hee-----------------------------------   
     @RequestMapping("/login")    
-    public String login(){    
+    public @ResponseBody User login(HttpServletRequest request){    
     	 /*return "redirect:/brand/all";*/
-    	 System.out.println("Ìø×ªÊ§°Ü");
-    	 return "/brand/all";
+    	 String aa=request.getParameter("id"); 
+    	 String name = request.getParameter("name");
+    	 System.out.print(aa);
+    	 System.out.print(name);
+    	 int id=Integer.parseInt(request.getParameter("id"));
+    	 User itemsCustom =  userService.getUserById(id);
+ 		 return itemsCustom;
     }
     
-    @RequestMapping("/test/{id}")    
-    public @ResponseBody User findItemsById(@PathVariable("id") Integer id) throws Exception{
-    	User itemsCustom =  userService.getUserById(id);
-		return itemsCustom;
+    @RequestMapping("/test")
+    public ModelAndView  findItemsById(ModelAndView mv){
+    	mv.setViewName("brand/all");
+    	return mv;
 	}
-    public void aaaa() { 
-    	  
-    }
     
 //--------------------------hee----------------------------------- 
 
