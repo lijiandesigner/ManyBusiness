@@ -9,4 +9,5 @@ public interface IDingdanService {
 	
 	
 	public List<Dingdan> getAllDingdan();
+	
 }

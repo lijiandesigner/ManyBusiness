@@ -8,5 +8,6 @@ import com.ssm.dto.Code;
 public interface ICodeDao {
 	
 	public void insertCode(Code code);
+	
 	public List<Code> getAllCode(); 
 }

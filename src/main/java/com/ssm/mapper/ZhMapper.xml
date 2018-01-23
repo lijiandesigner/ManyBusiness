@@ -20,6 +20,8 @@
 		zh_id,zh_zh,zh_pwd,zh_time,zh_phone,zh_token,zh_useful_time,zh_appid,zh_appsecre,zh_shopzh,zh_key
 		from zh
 	</select>
+	
+	
 	<!-- 插入用户 -->
 	<insert id="inserZh" parameterType="com.ssm.dto.Zh">
 		insert into zh

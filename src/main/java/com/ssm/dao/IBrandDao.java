@@ -8,5 +8,6 @@ public interface IBrandDao {
 	
 	 public List<Brand> selectAllBrand(); 
 	 
+	 
 	 public void insertBrand(Brand brand);
 }

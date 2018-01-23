@@ -118,9 +118,12 @@ public class Dingdan {
 		this.dingdan_buff = dingdan_buff;
 	}
 	public Integer getDingdan_table() {
+		
 		return dingdan_table;
 	}
 	public void setDingdan_table(Integer dingdan_table) {
+		
+		
 		this.dingdan_table = dingdan_table;
 	}
 	public Integer getDingdan_time_s() {

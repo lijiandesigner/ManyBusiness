@@ -11,4 +11,5 @@ public interface IDizhiService {
 	
 	
 	public List<Dizhi> getAllDizhi();
+	
 }

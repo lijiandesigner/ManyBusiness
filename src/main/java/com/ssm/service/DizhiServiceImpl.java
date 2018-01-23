@@ -20,5 +20,7 @@ public class DizhiServiceImpl implements IDizhiService{
 	@Override    
     public List<Dizhi> getAllDizhi() {    
         return dizhiDao.getAllDizhi();    
+        
+        
     } 
 }

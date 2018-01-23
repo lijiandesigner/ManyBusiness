@@ -8,4 +8,5 @@ public interface IBrandService {
 	 public List<Brand> selectAllBrand();
 	 
 	 public void insertBrand(Brand brand);  
+	 
 }

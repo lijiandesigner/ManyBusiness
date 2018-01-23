@@ -17,6 +17,8 @@
 		from refund
 	</select>
 	<!-- 插入用户 -->
+	
+	
 	<insert id="inserRefund" parameterType="com.ssm.dto.Refund">
 		insert into refund
 		<trim prefix="(" suffix=")" suffixOverrides=",">

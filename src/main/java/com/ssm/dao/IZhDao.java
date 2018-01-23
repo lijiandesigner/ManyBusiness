@@ -6,5 +6,7 @@ import com.ssm.dto.Zh;
 
 public interface IZhDao {
 	public void insertZh(Zh zh);
+	
+	
 	public List<Zh> getAllZh(); 
 }

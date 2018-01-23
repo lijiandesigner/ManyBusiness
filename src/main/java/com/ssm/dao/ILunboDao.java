@@ -11,4 +11,5 @@ public interface ILunboDao {
 	
 	
 	public List<Lunbo> getAllLunbo();
+	
 }

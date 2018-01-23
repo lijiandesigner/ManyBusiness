@@ -15,12 +15,14 @@ public class Refund {
 		this.refund_dingdan_id = refund_dingdan_id;
 	}
 	public String getRefund_shop_num() {
+		
 		return refund_shop_num;
 	}
 	public void setRefund_shop_num(String refund_shop_num) {
 		this.refund_shop_num = refund_shop_num;
 	}
 	public Integer getRefund_buff() {
+		
 		return refund_buff;
 	}
 	public void setRefund_buff(Integer refund_buff) {

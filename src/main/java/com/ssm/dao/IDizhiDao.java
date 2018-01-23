@@ -6,5 +6,6 @@ import com.ssm.dto.Dizhi;
 
 public interface IDizhiDao {
 	public void insertDizhi(Dizhi dizhi);
+	
 	public List<Dizhi> getAllDizhi(); 
 }

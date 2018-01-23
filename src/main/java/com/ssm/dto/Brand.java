@@ -11,9 +11,11 @@ public class Brand {
 		return id;
 	}
 	public void setId(Integer id) {
+		
 		this.id = id;
 	}
 	public String getBrand_name() {
+		
 		return brand_name;
 	}
 	public void setBrand_name(String brand_name) {

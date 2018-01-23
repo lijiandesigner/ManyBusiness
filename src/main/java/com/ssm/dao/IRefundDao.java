@@ -6,5 +6,7 @@ import com.ssm.dto.Refund;
 
 public interface IRefundDao {
 	public void insertRefund(Refund refund);
+	
+	
 	public List<Refund> getAllRefund(); 
 }

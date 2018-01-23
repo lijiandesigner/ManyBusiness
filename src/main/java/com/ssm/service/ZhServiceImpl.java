@@ -16,6 +16,7 @@ public class ZhServiceImpl implements IZhService {
 	
 	@Override    
     public List<Zh> getAllZh() {    
+		
         return zhDao.getAllZh();    
     } 
 }

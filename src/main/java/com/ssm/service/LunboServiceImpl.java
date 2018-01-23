@@ -13,6 +13,7 @@ import com.ssm.dto.Lunbo;
 public class LunboServiceImpl implements ILunboService {
 	@Resource    
     private ILunboDao lunboDao;
+	
 	public void insertLunbo(Lunbo lunbo) {    
         lunboDao.insertLunbo(lunbo);    
     }

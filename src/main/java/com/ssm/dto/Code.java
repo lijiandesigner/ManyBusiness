@@ -15,6 +15,7 @@ public class Code {
 		return code_name;
 	}
 	public void setCode_name(String code_name) {
+		
 		this.code_name = code_name;
 	}
 	public String getCode_pic() {

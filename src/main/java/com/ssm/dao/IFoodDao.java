@@ -12,16 +12,20 @@ public interface IFoodDao {
 	/**
 	 * @param _food 
 	 */
+	
+	
 	//public void insertFood(Food _food);
 	/**
 	 * @return 
 	 */
+	
 	public List<Food> selectAll();
 	
 	/**
 	 * @param _id 
 	 * @return 
 	 */
+	
 	public Food selectById(Integer _id);
 	
 	

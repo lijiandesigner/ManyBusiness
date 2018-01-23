@@ -21,6 +21,7 @@ public class Lunbo {
 		this.lunbo_pic = lunbo_pic;
 	}
 	public String getLunbo_show() {
+		
 		return lunbo_show;
 	}
 	public void setLunbo_show(String lunbo_show) {

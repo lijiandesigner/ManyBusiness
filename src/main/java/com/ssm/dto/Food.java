@@ -11,6 +11,7 @@ public class Food {
 	private String food_money_yuanjia;
 	private Integer food_index_show;
 	private Integer food_zh;
+	
 	public Integer getId() {
 		return id;
 	}

@@ -17,6 +17,8 @@
 		from lunbo
 	</select>
 	<!-- 插入用户 -->
+	
+	
 	<insert id="inserDizhi" parameterType="com.ssm.dto.Dizhi">
 		insert into dizhi
 		<trim prefix="(" suffix=")" suffixOverrides=",">

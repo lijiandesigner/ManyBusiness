@@ -22,6 +22,8 @@ public class Zh {
 		return zh_zh;
 	}
 	public void setZh_zh(String zh_zh) {
+		
+		
 		this.zh_zh = zh_zh;
 	}
 	public String getZh_pwd() {
