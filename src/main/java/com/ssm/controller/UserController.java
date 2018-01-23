@@ -10,7 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ssm.dto.User;    
+import com.ssm.dto.User;
+import com.ssm.jiekou.Msg;
 import com.ssm.service.IUserService;    
     
 @RestController    
@@ -59,10 +60,12 @@ public class UserController {
     }
     
     @RequestMapping("/test")    
-    public String test(){    
+    public void test(){    
     	 /*return "redirect:/brand/all";*/
     	 System.out.println("Ìø×ªÊ§°Ü");
-    	 return "aaa";   	 
+    	 Msg listObject = new Msg();  
+         listObject.setItems(); 
+    	    	 
     }
    
 }    
