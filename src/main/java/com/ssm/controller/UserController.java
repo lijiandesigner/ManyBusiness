@@ -54,13 +54,14 @@ public class UserController {
         return "redirect:/user/userList";    
 
     }*/  
+//---------------------------bzwh---------------------------------------
     public void lo() {
     	
     	
     };
-
+  //---------------------------bzwh---------------------------------------
   
-    
+//--------------------------hee-----------------------------------   
     @RequestMapping("/login")    
     public String login(){    
     	 /*return "redirect:/brand/all";*/
@@ -73,6 +74,9 @@ public class UserController {
     	User itemsCustom =  userService.getUserById(id);
 		return itemsCustom;
 	}
+    dd
+    
+//--------------------------hee----------------------------------- 
 
    
 }    
