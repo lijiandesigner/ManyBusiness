@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssm.dto.User;
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/lijiandesigner/ManyBusiness.git
 import com.ssm.service.IUserService;    
     
 @RestController    

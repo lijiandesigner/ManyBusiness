@@ -5,11 +5,11 @@
 		<result column="id" property="id" jdbcType="INTEGER" />
 		<result column="code_name" property="code_name" jdbcType="VARCHAR" />
 		<result column="code_pic" property="code_pic" jdbcType="VARCHAR" />
-<<<<<<< HEAD
+
 		<result column="code_zh" property="code_zh" jdbcType="INTEGER" />
-=======
+
 		<result column="code_zh" property="code_zh" jdbcType="VARCHAR" />
->>>>>>> branch 'master' of https://github.com/lijiandesigner/ManyBusiness
+
 	</resultMap>
 	<!-- 查询用户 -->
 	<select id="getAllCode" resultMap="BaseResultMap">
