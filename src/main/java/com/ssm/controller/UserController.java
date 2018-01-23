@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssm.dto.User;
-import com.ssm.jiekou.Msg;
 import com.ssm.service.IUserService;    
     
 @RestController    
