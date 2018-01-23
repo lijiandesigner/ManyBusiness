@@ -22,16 +22,16 @@
 			<if test="id != null">
 				id,
 			</if>
-			<if test="name != null">
+			<if test="brand_name != null">
 				brand_name,
 			</if>
-			<if test="password != null">
+			<if test="brand_pic != null">
 				brand_pic,
 			</if>
-			<if test="age != null">
+			<if test="brand_num != null">
 				brand_num,
 			</if>
-			<if test="age != null">
+			<if test="brand_zh != null">
 				brand_zh,
 			</if>
 		</trim>
