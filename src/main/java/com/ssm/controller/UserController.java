@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssm.dto.User;
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/lijiandesigner/ManyBusiness.git
 import com.ssm.service.IUserService;    
     
 @RestController    
@@ -53,8 +57,8 @@ public class UserController {
         return "redirect:/user/userList";    
 <<<<<<< HEAD
     }*/  
-=======
-    }  
+
+  
     
     @RequestMapping("/login")    
     public String login(){    
@@ -68,6 +72,6 @@ public class UserController {
     	User itemsCustom =  userService.getUserById(id);
 		return itemsCustom;
 	}
->>>>>>> branch 'master' of https://github.com/lijiandesigner/ManyBusiness
+
    
 }    
