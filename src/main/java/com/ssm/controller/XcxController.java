@@ -9,27 +9,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ssm.dto.User;
 import com.ssm.service.IUserService;
+import com.ssm.service.IZhService;
 
 @RestController    
 @RequestMapping("/xcx")    
 public class XcxController {
 	
 	 @Resource    
-	 private IUserService userService; 
+	 private IZhService ZhService; 
 	
-	/* ÅĞ¶ÏÓÃ»§ÊÇ·ñ¹ıÆÚ
-	 * ¸ù¾İ´«¹ıÀ´µÄÖµ 
-	 * appid ºÍappsecre ´ÓÊı¾İ¿â»ñÈ¡µ½Ê±¼ätime1
-	 * µ±Ç° Ê±¼ä´Á-time1
-	 * ´óÓÚ0 ·µ»Ø0
-	 * Ğ¡ÓÚÁã ·µ»ØÕËºÅ
+	 /* åˆ¤æ–­ç”¨æˆ·æ˜¯å¦è¿‡æœŸ
+	 * æ ¹æ®ä¼ è¿‡æ¥çš„å€¼ 
+	 * appid å’Œappsecre ä»æ•°æ®åº“è·å–åˆ°æ—¶é—´time1
+	 * å½“å‰ æ—¶é—´æˆ³-time1
+	 * å¤§äº0 è¿”å›0
+	 * å°äºé›¶ è¿”å›è´¦å·
 	 * */ 
 	@RequestMapping("/zhIfOk")
 	public String zhIfOk(HttpServletRequest request){
 		 String appid=request.getParameter("appid");
 		 String appsecre=request.getParameter("appsecre");
-		 User result =  userService.selectUserTime(appid,appsecre);
-		 return result;
+		
+		 return appsecre;
 	}
     
 	
