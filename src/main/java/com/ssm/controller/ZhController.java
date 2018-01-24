@@ -6,5 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController    
 @RequestMapping("/zh")    
 public class ZhController {
-
+	
+	//*******************hee*************************
+	@RequestMapping("/test")
+	public String test(){
+		 return "aaa";
+	}
+	//*******************hee*************************
 }
