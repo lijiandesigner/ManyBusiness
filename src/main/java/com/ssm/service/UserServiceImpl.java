@@ -30,7 +30,13 @@ public class UserServiceImpl implements IUserService {
     @Override    
     public List<User> getAllUser() {    
         return userDao.getAllUser();    
-    } 
+    }
+    
+  //----------------------hee-------------------------
+    public User selectUserTime(String zh_appid,String zh_appsecre) {
+    	return userDao.queryUserByAppoint(null,zh_appid,zh_appsecre);
+    };
+  //----------------------hee-------------------------
     
     
 }    

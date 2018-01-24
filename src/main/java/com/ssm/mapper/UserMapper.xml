@@ -40,7 +40,27 @@
 		<include refid="Base_Column_List" />
 		from user
 	</select>
-
+	
+	<!--***********************hee************************-->
+	<!-- 查询指定用户 根据where -->
+	<select id="queryUserByAppoint" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where 1=1 
+		 <if test="zh_id != null ">
+		     and id = #{zh_id,jdbcType=INTEGER}
+		 </if>
+		 <if test="zh_appid != null">
+		     and zh_appid = #{zh_appid,jdbcType=VARCHAR}
+		 </if>
+		 <if test="zh_appsecre != null">
+		     and zh_appsecre = #{zh_appsecre,jdbcType=VARCHAR}
+		 </if>
+	</select>
+	<!--***********************hee************************-->
+	
 	<!-- 批量查询用户 -->
 	<select id="queryUserByBatch" resultMap="BaseResultMap"
 		parameterType="java.util.Map">
@@ -53,6 +73,7 @@
 			#{userId,jdbcType=DECIMAL}
 		</foreach>
 	</select>
+	
 	<!-- 插入用户 -->
 	<insert id="insertUser" parameterType="com.ssm.dto.User">
 		insert into user
