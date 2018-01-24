@@ -34,6 +34,14 @@ public class XcxController {
 		 Zh zh = ZhService.selectZhTime(appid,appsecre);
 		 return zh;
 	}
+	
+	/*
+	 * 测试方法
+	 * */
+	@RequestMapping("/test")
+	public String test(){
+		 return "aaa";
+	}
     
 	
 	
