@@ -33,9 +33,7 @@ public class UserServiceImpl implements IUserService {
     }
     
   //----------------------hee-------------------------
-    public User selectUserTime(String zh_appid,String zh_appsecre) {
-    	return userDao.queryUserByAppoint(null,zh_appid,zh_appsecre);
-    };
+    
   //----------------------hee-------------------------
     
     

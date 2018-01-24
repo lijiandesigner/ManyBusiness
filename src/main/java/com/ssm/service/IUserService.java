@@ -14,12 +14,14 @@ public interface IUserService {
     public List<User> getAllUser();
     
   //----------------------hee-------------------------
-    /* ½Ó¿Ú
-     * »ñÈ¡ÓÃ»§ µ½ÆÚÊ±ÆÚµÄ·½·¨
-     * zh_appid Ö¸¶¨²ÎÊı1
-     * zh_appsecre Ö¸¶¨²ÎÊı2
-     * */
-    public User selectUserTime(String zh_appid,String zh_appsecre);
+	 /* åˆ¤æ–­ç”¨æˆ·æ˜¯å¦è¿‡æœŸ
+	 * æ ¹æ®ä¼ è¿‡æ¥çš„å€¼ 
+	 * appid å’Œappsecre ä»æ•°æ®åº“è·å–åˆ°æ—¶é—´time1
+	 * å½“å‰ æ—¶é—´æˆ³-time1
+	 * å¤§äº0 è¿”å›0
+	 * å°äºé›¶ è¿”å›è´¦å·
+	 * */ 
+    public Zh selectUserTime(String zh_appid,String zh_appsecre);
   //----------------------hee-------------------------
     
 }    

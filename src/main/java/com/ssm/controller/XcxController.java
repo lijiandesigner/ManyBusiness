@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssm.dto.User;
+import com.ssm.dto.Zh;
 import com.ssm.service.IUserService;
 import com.ssm.service.IZhService;
 
@@ -17,6 +18,7 @@ public class XcxController {
 	
 	 @Resource    
 	 private IZhService ZhService; 
+	 
 	
 	 /* 判断用户是否过期
 	 * 根据传过来的值 
@@ -26,11 +28,11 @@ public class XcxController {
 	 * 小于零 返回账号
 	 * */ 
 	@RequestMapping("/zhIfOk")
-	public String zhIfOk(HttpServletRequest request){
+	public @ResponseBody Zh zhIfOk(HttpServletRequest request){
 		 String appid=request.getParameter("appid");
 		 String appsecre=request.getParameter("appsecre");
-		
-		 return appsecre;
+		 Zh zh = ZhService.selectZhTime(appid,appsecre);
+		 return zh;
 	}
     
 	
