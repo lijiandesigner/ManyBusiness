@@ -1,20 +1,11 @@
 package com.ssm.controller;
 
-import javax.annotation.Resource;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ssm.service.IZhService;
-
-
 @RestController    
-@RequestMapping("/xcx")    
-public class XcxController {
-
-	/*
-	 * 测试方法
-	 * */
+@RequestMapping("/test")
+public class TestController {
 	@RequestMapping("/aaa")
 	public String test(){
 		 return "aaa";
