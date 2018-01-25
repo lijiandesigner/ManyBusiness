@@ -20,7 +20,7 @@ public class ZhController {
 	@Resource    
     private IZhService zhService;  
 	//*******************hee*************************
-	@RequestMapping("/test")
+	@RequestMapping("/test1")
 	public String test(){
 		 return "aaa";   
 	}
