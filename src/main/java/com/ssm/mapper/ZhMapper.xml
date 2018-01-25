@@ -22,7 +22,7 @@
 	</select>
 	<!-- 查询用户 -->
 	<select id="getZhByzh" resultMap="BaseResultMap"
-		parameterType="java.lang.Map">
+		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
 		from zh
