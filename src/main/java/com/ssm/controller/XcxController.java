@@ -27,6 +27,6 @@ public class XcxController {
 	 * */
 	@RequestMapping("/aaa")
 	public String test(){
-		 return "bbb";
+		 return "bbb";  
 	}
 }
