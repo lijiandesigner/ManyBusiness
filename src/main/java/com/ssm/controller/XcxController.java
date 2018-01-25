@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ssm.dto.User;
 import com.ssm.dto.Zh;
 import com.ssm.service.IFoodService;
 import com.ssm.service.IUserService;
@@ -27,4 +28,16 @@ public class XcxController {
 	public String test(){
 		 return "bbb";  
 	}
+	//*******************hee***************************
+	@RequestMapping("/ifZhTime")
+	public String ifZhTime(HttpServletRequest request){
+		 //获取post参数
+		 String zh_appid=request.getParameter("zh_appid");
+		 String zh_appsecre=request.getParameter("zh_appsecre");
+		 //通过server服务 获取 对应字段
+		 Zh zh = zhService.selectZhTime(zh_appid,zh_appsecre);
+		 
+		 return "aa";
+	}
+	//*******************hee***************************
 }

@@ -14,6 +14,11 @@
 		<result column="zh_shopzh" property="zh_shopzh" jdbcType="VARCHAR" />
 		<result column="zh_key" property="zh_key" jdbcType="INTEGER" />
 	</resultMap>
+	
+	<sql id="Base_Column_List">
+		zh_id,zh_zh,zh_pwd,zh_time,zh_phone,zh_token,zh_useful_time,zh_appid,zh_appsecre,zh_shopzh,zh_key
+	</sql>
+	
 	<!-- 查询用户 -->
 	<select id="getAllZh" resultMap="BaseResultMap">
 		select
