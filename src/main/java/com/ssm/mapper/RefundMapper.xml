@@ -10,6 +10,11 @@
 		<result column="refund_time_ok" property="refund_time_ok" jdbcType="INTEGER" />
 		<result column="refund_zh" property="refund_zh" jdbcType="INTEGER" />
 	</resultMap>
+	
+	<sql id="Base_Column_List">
+		refund_id,refund_dingdan_id,refund_shop_num,refund_buff,refund_time,refund_time_ok,refund_zh
+	</sql>
+	
 	<!-- 查询用户 -->
 	<select id="getAllRefund" resultMap="BaseResultMap">
 		select

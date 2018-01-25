@@ -10,6 +10,11 @@
 		<result column="lunbo_remark" property="lunbo_remark" jdbcType="VARCHAR" />
 		<result column="lunbo_zh" property="lunbo_zh" jdbcType="INTEGER" />
 	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id,lunbo_name,lunbo_pic,lunbo_show,lunbo_num,lunbo_remark,lunbo_zh
+	</sql>
+	
 	<!-- 查询用户 -->
 	<select id="getAllLunbo" resultMap="BaseResultMap">
 		select

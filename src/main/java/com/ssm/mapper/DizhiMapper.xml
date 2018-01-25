@@ -11,6 +11,11 @@
 		<result column="dizhi_select" property="dizhi_select" jdbcType="VARCHAR" />
 		<result column="dizhi_zh" property="dizhi_zh" jdbcType="INTEGER" />
 	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id,dizhi_name,dizhi_sex,dizhi_phone,dizhi_dizhi,dizhi_menpai,dizhi_select,dizhi_zh
+	</sql>
+	
 	<!-- 查询用户 -->
 	<select id="getAllDizhi" resultMap="BaseResultMap">
 		select

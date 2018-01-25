@@ -11,6 +11,11 @@
 		<result column="code_zh" property="code_zh" jdbcType="VARCHAR" />
 
 	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id,code_name,code_pic,code_zh
+	</sql>
+	
 	<!-- 查询用户 -->
 	<select id="getAllCode" resultMap="BaseResultMap">
 		select

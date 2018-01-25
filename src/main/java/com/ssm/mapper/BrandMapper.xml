@@ -9,6 +9,11 @@
 		<result column="brand_num" property="brand_goods" jdbcType="VARCHAR" />
 		<result column="brand_zh" property="brand_zh" jdbcType="INTEGER" />
 	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id,brand_name,brand_pic,brand_num,brand_zh
+	</sql>
+	
 	<!-- 查询所有商品   -->
 	<select id="selectAllBrand" resultMap="BaseResultMapBrand">
 		select

@@ -24,6 +24,11 @@
 		<result column="dingdan_time_e" property="dingdan_time_e" jdbcType="INTEGER" />
 		<result column="dingdan_zh" property="dingdan_zh" jdbcType="INTEGER" />
 	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id,dingdan_openid,dingdan_phone,dingdan_name,dingdan_sex,dingdan_dizhi,dingdan_menpai,dingdan_remark,dingdan_num,dingdan_shops,dingdan_spec,dingdan_moneys,dingdan_money,dingdan_profit,dingdan_buff,dingdan_buff2,dingdan_table,dingdan_time_s,dingdan_time_e,dingdan_zh
+	</sql>
+	
 	<select id="selectAll" resultMap="BaseResultMapDingdan">
 		select
 		id,dingdan_openid,dingdan_phone,dingdan_name,dingdan_sex,dingdan_dizhi,dingdan_menpai,dingdan_remark,dingdan_num,dingdan_shops,dingdan_spec,dingdan_moneys,dingdan_money,dingdan_profit,dingdan_buff,dingdan_buff2,dingdan_table,dingdan_time_s,dingdan_time_e,dingdan_zh
