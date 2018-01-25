@@ -22,4 +22,9 @@ public interface IZhService {
 	 * */ 
     public Zh selectZhTime(String zh_appid,String zh_appsecre);
     //----------------------hee-------------------------
+    
+  //----------------------buzhiweihe-------------------------
+    public Zh getZhByzh(String zh_zh);
+    
+  //----------------------buzhiweihe-------------------------
 }

@@ -20,4 +20,10 @@ public interface IZhDao {
      * */
     public Zh queryZhByAppoint(Integer zh_id,String zh_appid,String zh_appsecre);
     //----------------hee------------------------------------------------
+    
+    
+    
+    //------------------buzhiweihe-------------------------------------
+    public Zh getZhByzhD(String zh_zh);
+    //------------------byzhiweihe-------------------------------------
 }

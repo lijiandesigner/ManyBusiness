@@ -9,7 +9,8 @@ $(function(){
         var _this = $(this);
         _this.button('loading');
         var form = _this.closest('form');
-        if(orm.length){
+        if(form.length){
+        	alert();
            $.post("checklog",{},function(aa){
         	   alert(aa);
         	   console.log(aa);

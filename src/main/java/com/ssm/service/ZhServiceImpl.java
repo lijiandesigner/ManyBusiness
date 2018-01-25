@@ -36,5 +36,8 @@ public class ZhServiceImpl implements IZhService {
 	public Zh selectZhTime(String zh_appid,String zh_appsecre) {
 		return zhDao.queryZhByAppoint(null,zh_appid,zh_appsecre);
 	}
+	public Zh getZhByzh(String zh_zh) {
+		return zhDao.getZhByzhD(zh_zh);
+	}
     //----------------------hee-------------------------
 }

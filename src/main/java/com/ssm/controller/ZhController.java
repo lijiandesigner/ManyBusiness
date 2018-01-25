@@ -33,9 +33,9 @@ public class ZhController {
     	return mv;
 	}
 	@RequestMapping("/checklog")    
-    public @ResponseBody List<Zh> checklog(HttpServletRequest request){    
-    	 String name = request.getParameter("zh");
-    	 System.out.print(name);
+    public @ResponseBody List<Zh> checklog(){    
+    	 /*String name = request.getParameter("zh");
+    	 System.out.print(name);*/
     	 List<Zh> itemsCustom =  zhService.getAllZh();
  		 return itemsCustom;
     }
