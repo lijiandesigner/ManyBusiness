@@ -7,8 +7,8 @@ public class Zh {
 	private Integer zh_time;
 	private String zh_phone;
 	private String zh_token;
-	private Integer useful_time;
-	private String appid;
+	private Integer zh_useful_time;
+	private String zh_appid;
 	private String zh_appsecre;
 	private String zh_shopzh;
 	private String zh_key;
@@ -50,17 +50,17 @@ public class Zh {
 	public void setZh_token(String zh_token) {
 		this.zh_token = zh_token;
 	}
-	public Integer getUseful_time() {
-		return useful_time;
+	public Integer getZh_useful_time() {
+		return zh_useful_time;
 	}
-	public void setUseful_time(Integer useful_time) {
-		this.useful_time = useful_time;
+	public void setZh_sseful_time(Integer zh_useful_time) {
+		this.zh_useful_time = zh_useful_time;
 	}
-	public String getAppid() {
-		return appid;
+	public String getZh_appid() {
+		return zh_appid;
 	}
-	public void setAppid(String appid) {
-		this.appid = appid;
+	public void setZh_appid(String zh_appid) {
+		this.zh_appid = zh_appid;
 	}
 	public String getZh_appsecre() {
 		return zh_appsecre;
