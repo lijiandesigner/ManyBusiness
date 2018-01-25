@@ -20,7 +20,8 @@
 		zh_id,zh_zh,zh_pwd,zh_time,zh_phone,zh_token,zh_useful_time,zh_appid,zh_appsecre,zh_shopzh,zh_key
 		from zh
 	</select>
-	<!-- 查询用户 -->
+
+	<!-- ***************************buzhiweihe***************************** -->
 	<select id="getZhByzh" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
@@ -28,7 +29,7 @@
 		from zh
 		where zh_zh = #{zh_zh,jdbcType=VARCHAR}
 	</select>
-	
+	<!-- ***************************buzhiweihe***************************** -->
 	<!-- 插入用户 -->
 	<insert id="inserZh" parameterType="com.ssm.dto.Zh">
 		insert into zh
