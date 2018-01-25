@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssm.dto.Zh;
+import com.ssm.service.IFoodService;
 import com.ssm.service.IUserService;
 import com.ssm.service.IZhService;
 
@@ -16,11 +17,10 @@ import com.ssm.service.IZhService;
 @RequestMapping("/xcx")    
 public class XcxController {
 	@Resource    
-    private IZhService zhService;
+    private IUserService userService;
 	
-	
-	
-	
+	@Resource    
+    private IFoodService foodService;
 	
 	/*
 	 * 测试方法
