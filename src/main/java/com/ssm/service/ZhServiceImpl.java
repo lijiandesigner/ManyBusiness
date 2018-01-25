@@ -41,7 +41,7 @@ public class ZhServiceImpl implements IZhService {
 	
 	//----------------------buzhiweihe-------------------------
 	public Zh getZhByzh(String zh_zh) {
-		return zhDao.getZhByzhD(zh_zh);
+		return zhDao.getZhByzh(zh_zh);
 	}
 	//----------------------buzhiweihe-------------------------
 	

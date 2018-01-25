@@ -27,6 +27,6 @@ public interface IZhDao {
     
     
     //------------------buzhiweihe-------------------------------------
-    public Zh getZhByzhD(String zh_zh);
+    public Zh getZhByzh(String zh_zh);
     //------------------byzhiweihe-------------------------------------
 }
