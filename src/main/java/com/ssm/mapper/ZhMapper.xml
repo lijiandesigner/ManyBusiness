@@ -112,14 +112,13 @@
 	
 	<!--***********************hee************************-->
 	<!-- 查询指定Zh字段 根据where -->
-	<select id="queryZhByAppoint" resultMap="BaseResultMap"
-		parameterType="java.util.Map">
+	<select id="queryZhByAppoint" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from user
+		from zh
 		where 1=1 
 		 <if test="zh_id != null ">
-		     and id = #{zh_id,jdbcType=INTEGER}
+		     and zh_id = #{zh_id,jdbcType=INTEGER}
 		 </if>
 		 <if test="zh_appid != null">
 		     and zh_appid = #{zh_appid,jdbcType=VARCHAR}

@@ -35,8 +35,8 @@ public class XcxController {
 		 String zh_appid=request.getParameter("zh_appid");
 		 String zh_appsecre=request.getParameter("zh_appsecre");
 		 //通过server服务 获取 对应字段
-		 Zh zh = zhService.selectZhTime(zh_appid,zh_appsecre);
-		 
+		 Zh zh = zhService.selectZhTime("wxa104503bc7b7216c","733e6b09895e5ebca63689d5e3cb0ad8");
+		 //Integer aaa=null;
 		 return "aa";
 	}
 	//*******************hee***************************

@@ -2,6 +2,8 @@ package com.ssm.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.ssm.dto.Zh;
 
 public interface IZhDao {
@@ -18,7 +20,8 @@ public interface IZhDao {
      * zh_appid 字段
      * zh_appsecre 字段
      * */
-    public Zh queryZhByAppoint(Integer zh_id,String zh_appid,String zh_appsecre);
+    public Zh queryZhByAppoint(@Param("zh_id")Integer zh_id,@Param("zh_appid")String zh_appid,@Param("zh_appsecre")String zh_appsecre);
+    //public Zh queryZhByAppoint(String zh_appid,String zh_appsecre);
     //----------------hee------------------------------------------------
     
     
