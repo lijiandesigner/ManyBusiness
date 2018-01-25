@@ -17,10 +17,8 @@ import com.ssm.service.IZhService;
 @RequestMapping("/xcx")    
 public class XcxController {
 	@Resource    
-    private IUserService userService;
+    private IZhService zhService;
 	
-	@Resource    
-    private IFoodService foodService;
 	
 	/*
 	 * 测试方法
