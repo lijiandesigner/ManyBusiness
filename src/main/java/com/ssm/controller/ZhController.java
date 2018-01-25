@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ZhController {
 	
 	//*******************hee*************************
-	@RequestMapping("/test")
+	@RequestMapping("/test1")
 	public String test(){
 		 return "aaa";   
 	}

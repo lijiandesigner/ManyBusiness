@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import com.ssm.dao.IZhDao;
 import com.ssm.dto.Zh;
-import com.ssm.service.IZhService;    
+import com.ssm.service.IZhService; 
+@Service("zhService")
 public class ZhServiceImpl implements IZhService {
 	@Resource    
     private IZhDao zhDao;
