@@ -37,6 +37,7 @@ public class ZhController {
     	 /*String name = request.getParameter("zh");
     	 System.out.print(name);*/
     	 Zh itemsCustom =  zhService.getZhByzh("hee");
+    	// System.out.print(itemsCustom.getZh_time());
  		 return itemsCustom;
     }
 	
