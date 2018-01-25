@@ -33,12 +33,14 @@ public class ZhController {
     	return mv;
 	}
 	@RequestMapping("/checklog")    
-    public @ResponseBody List<Zh> checklog(){    
+    public @ResponseBody Zh checklog(){    
     	 /*String name = request.getParameter("zh");
     	 System.out.print(name);*/
-    	 List<Zh> itemsCustom =  zhService.getAllZh();
+    	 Zh itemsCustom =  zhService.getZhByzh("hee");
  		 return itemsCustom;
     }
+	
+	
 	//*******************buzhiweihe******************
 	
 }
