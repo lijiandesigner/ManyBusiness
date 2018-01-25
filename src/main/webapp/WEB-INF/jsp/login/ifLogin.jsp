@@ -13,8 +13,7 @@
 <link rel="stylesheet" type="text/css" href="../global/bootstrap/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="../global/Amaranjs/amaran.min.css">
 <link rel="stylesheet" type="text/css" href="../system/dist/css/AdminLTE.min.css">
-http://localhost:8080/Maven_Project/system/dist/js/login.js
- http://localhost:8080/Maven_Project/user/system/dist/js/login.js
+
 <!--[if lt IE 9]>
 {load href="/static/system/dist/js/html5shiv.min.js" /}
 {load href="/static/system/dist/js/respond.min.js" /}
@@ -25,7 +24,7 @@ http://localhost:8080/Maven_Project/system/dist/js/login.js
     <div class="login-logo"><a href="#" style="">商家后台</a></div>
     <div class="login-box-body">
         <p class="login-box-msg">请填写用户名密码登陆系统</p>
-        <form action="{:url('Login/checkLogin')}" method="POST" onsubmit="return false" >
+        <form action="checklog" method="POST" onsubmit="return false" >
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" name="username" placeholder="用户名">
                 <span class="glyphicon form-control-feedback fa fa-user fa-lg"></span>
