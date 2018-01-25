@@ -10,7 +10,7 @@ public class ZhController {
 	//*******************hee*************************
 	@RequestMapping("/test")
 	public String test(){
-		 return "aaa"; 
+		 return "aaa";  
 	}
 	//*******************hee*************************
 }
