@@ -18,6 +18,17 @@ import com.ssm.service.IZhService;
 @RestController    
 @RequestMapping("/zh")    
 public class ZhController {
+	public ModelAndView ZhController(ModelAndView mv,HttpServletRequest request) {
+		HttpSession session = request.getSession();//初始化session对象
+		String zh=(String)session.getAttribute("zh");//存账号进session
+		if(zh!=null) {
+			mv.setViewName("index/index");
+		}else {
+			mv.setViewName("login/ifLogin");
+		}
+		return mv;
+		
+	}
 	@Resource    
     private IZhService zhService;  
 	//*******************hee*************************
@@ -29,8 +40,17 @@ public class ZhController {
 	//test
 	//*******************buzhiweihe******************
 	@RequestMapping("/log")
-    public ModelAndView  log(ModelAndView mv){
+    public ModelAndView  log(ModelAndView mv,HttpServletRequest request){
+		
     	mv.setViewName("login/ifLogin");
+    	return mv;
+	}
+	@RequestMapping("/index")
+    public ModelAndView  index(ModelAndView mv,HttpServletRequest request){
+		
+			mv.setViewName("index/index");
+		
+    	
     	return mv;
 	}
 	@RequestMapping("/checklog")    
@@ -52,7 +72,9 @@ public class ZhController {
     				//未到期，跳转到登陆页面
     				System.out.print("weidao");
     				HttpSession session = request.getSession();//初始化session对象
-    				session.setAttribute("zh", zh);//存账号进session 
+    				Integer zh_id=itemsCustom.getZh_id();
+    				session.setAttribute("zh", zh);//存账号进session
+    				session.setAttribute("zh_id", zh_id);
     				return 2;
     			}else {
     				System.out.print("yi");

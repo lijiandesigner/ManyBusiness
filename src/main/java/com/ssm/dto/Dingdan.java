@@ -3,7 +3,7 @@ package com.ssm.dto;
 public class Dingdan {
 	private Integer id;
 	private String dingdan_openid;
-	private String digndan_phone;
+	private String dingdan_phone;
 	private String dingdan_name;
 	private String dingdan_sex;
 	private String dingdan_dizhi;
@@ -12,7 +12,6 @@ public class Dingdan {
 	private Integer dingdan_num;
 	private String dingdan_shops;
 	private String dingdan_goods;
-	private String dingdan_spec;
 	private String dingdan_moneys;
 	private Integer dingdan_money;
 	private Integer dingdan_profit;
@@ -33,11 +32,11 @@ public class Dingdan {
 	public void setDingdan_openid(String dingdan_openid) {
 		this.dingdan_openid = dingdan_openid;
 	}
-	public String getDigndan_phone() {
-		return digndan_phone;
+	public String getDingdan_phone() {
+		return dingdan_phone;
 	}
 	public void setDigndan_phone(String digndan_phone) {
-		this.digndan_phone = digndan_phone;
+		this.dingdan_phone = digndan_phone;
 	}
 	public String getDingdan_name() {
 		return dingdan_name;
@@ -87,12 +86,7 @@ public class Dingdan {
 	public void setDingdan_goods(String dingdan_goods) {
 		this.dingdan_goods = dingdan_goods;
 	}
-	public String getDingdan_spec() {
-		return dingdan_spec;
-	}
-	public void setDingdan_spec(String dingdan_spec) {
-		this.dingdan_spec = dingdan_spec;
-	}
+
 	public String getDingdan_moneys() {
 		return dingdan_moneys;
 	}

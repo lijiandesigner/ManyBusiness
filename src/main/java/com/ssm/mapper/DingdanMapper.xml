@@ -13,25 +13,24 @@
 		<result column="dingdan_remark" property="dingdan_remark" jdbcType="VARCHAR" />
 		<result column="dingdan_num" property="dingdan_num" jdbcType="INTEGER" />
 		<result column="dingdan_shops" property="dingdan_shops" jdbcType="VARCHAR" />
-		<result column="dingdan_spec" property="dingdan_spec" jdbcType="VARCHAR" />
+		<result column="dingdan_goods" property="dingdan_goods" jdbcType="VARCHAR" />
 		<result column="dingdan_moneys" property="dingdan_moneys" jdbcType="VARCHAR" />
 		<result column="dingdan_money" property="dingdan_money" jdbcType="INTEGER" />
 		<result column="dingdan_profit" property="dingdan_profit" jdbcType="INTEGER" />
-		<result column="dingdan_buff" property="dingdan_buff" jdbcType="VARCHAR" />
-		<result column="dingdan_buff2" property="dingdan_buff2" jdbcType="VARCHAR" />
-		<result column="dingdan_table" property="dingdan_bable" jdbcType="INTEGER" />
+		<result column="dingdan_buff" property="dingdan_buff" jdbcType="INTEGER" />
+		<result column="dingdan_table" property="dingdan_table" jdbcType="INTEGER" />
 		<result column="dingdan_time_s" property="dingdan_time_s" jdbcType="INTEGER" />
 		<result column="dingdan_time_e" property="dingdan_time_e" jdbcType="INTEGER" />
 		<result column="dingdan_zh" property="dingdan_zh" jdbcType="INTEGER" />
 	</resultMap>
 	
 	<sql id="Base_Column_List">
-		id,dingdan_openid,dingdan_phone,dingdan_name,dingdan_sex,dingdan_dizhi,dingdan_menpai,dingdan_remark,dingdan_num,dingdan_shops,dingdan_spec,dingdan_moneys,dingdan_money,dingdan_profit,dingdan_buff,dingdan_buff2,dingdan_table,dingdan_time_s,dingdan_time_e,dingdan_zh
+		id,dingdan_openid,dingdan_phone,dingdan_name,dingdan_sex,dingdan_dizhi,dingdan_menpai,dingdan_remark,dingdan_num,dingdan_shops,dingdan_moneys,dingdan_money,dingdan_profit,dingdan_buff,dingdan_table,dingdan_time_s,dingdan_time_e,dingdan_zh
 	</sql>
 	
-	<select id="selectAll" resultMap="BaseResultMapDingdan">
+	<select id="getAllDingdan" resultMap="BaseResultMapDingdan">
 		select
-		id,dingdan_openid,dingdan_phone,dingdan_name,dingdan_sex,dingdan_dizhi,dingdan_menpai,dingdan_remark,dingdan_num,dingdan_shops,dingdan_spec,dingdan_moneys,dingdan_money,dingdan_profit,dingdan_buff,dingdan_buff2,dingdan_table,dingdan_time_s,dingdan_time_e,dingdan_zh
+		id,dingdan_openid,dingdan_phone,dingdan_name,dingdan_sex,dingdan_dizhi,dingdan_menpai,dingdan_remark,dingdan_num,dingdan_shops,dingdan_moneys,dingdan_money,dingdan_profit,dingdan_buff,dingdan_table,dingdan_time_s,dingdan_time_e,dingdan_zh
 		from dingdan
 	</select>
 	
@@ -69,9 +68,6 @@
 			<if test="dingdan_shops != null">
 				dingdan_shops,
 			</if>
-			<if test="dingdan_spec != null">
-				dingdan_spec,
-			</if>
 			<if test="dingdan_moneys != null">
 				dingdan_moneys,
 			</if>
@@ -84,10 +80,7 @@
 			<if test="dingdan_buff != null">
 				dingdan_buff,
 			</if>
-			<if test="dingdan_buff2 != null">
-				dingdan_buff2,
-			</if>
-			<if test="dingdan_bable != null">
+			<if test="dingdan_table != null">
 				dingdan_table,
 			</if>
 			<if test="dingdan_time_s != null">
@@ -141,16 +134,11 @@
 			<if test="dingdan_money != null">
 				#{dingdan_money,jdbcType=INTEGER},
 			</if>
-			
-			dingdan_profit dingdan_buff dingdan_buff2 dingdan_table dingdan_time_s dingdan_time_e dingdan_zh
 			<if test="dingdan_profit != null">
 				#{dingdan_profit,jdbcType=INTEGER},
 			</if>
 			<if test="dingdan_buff != null">
 				#{dingdan_buff,jdbcType=VARCHAR},
-			</if>
-			<if test="dingdan_buff2 != null">
-				#{dingdan_buff2,jdbcType=VARCHAR},
 			</if>
 			<if test="dingdan_table != null">
 				#{dingdan_table,jdbcType=INTEGER},

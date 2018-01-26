@@ -17,6 +17,7 @@ $(function(){
         		   //跳登陆页
         		   $.amaran({ 'message':'登陆成功', 'clearAll':true });
         		   _this.button('reset');
+        		   window.location.href="index";
         	   }else if(aa=="1"){
         		   //跳充值页面
         		   $.amaran({ 'message':'账户余额不足', 'clearAll':true });
