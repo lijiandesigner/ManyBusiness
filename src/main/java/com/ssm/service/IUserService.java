@@ -14,8 +14,17 @@ public interface IUserService {
     public List<User> getAllUser();
     
   //----------------------hee-------------------------
-	 
-   
+    /* 根据 openid 和 user_zh 确定用户
+     * openid String
+     * user_zh Integer
+     * */
+    public User getUserByOpenidUser_zh(String openid,Integer user_zh);
+    
+    /* 根据 openid 和 user_zh 确定用户
+     * user User
+     * openid String
+     * */
+    public void setByIdOenid(User user,Integer user_zh,String openid);
   //----------------------hee-------------------------
     
 }    

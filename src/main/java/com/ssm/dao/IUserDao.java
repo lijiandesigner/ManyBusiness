@@ -1,7 +1,9 @@
 package com.ssm.dao;
 import java.util.List;    
-import java.util.Map;    
-    
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.ssm.dto.User;    
 //ç‰¹æ•™æµ‹è¯•    
 public interface IUserDao {    
@@ -23,12 +25,14 @@ public interface IUserDao {
     public List<User> getAllUser(); 
     
     //----------------hee------------------------------------------------
-    /* ÊµÏÖ·şÎñ
-     * »ñÈ¡ÓÃ»§ µ½ÆÚÊ±ÆÚµÄ·½·¨
-     * zh_appid Ö¸¶¨²ÎÊı1
-     * zh_appsecre Ö¸¶¨²ÎÊı2
+    /* æ ¹æ® openid å’Œ user_zh ç¡®å®šç”¨æˆ·
+     * openid String
+     * user_zh Integer
      * */
-    public User queryUserByAppoint(Integer zh_id,String zh_appid,String zh_appsecre);
+    public User queryUserByOpenidUser_zh(@Param("openid")String openid,@Param("user_zh")Integer user_zh);
+    
+    //æ›´æ–°ç”¨æˆ·åŸºæœ¬ ä¿¡æ¯
+    public void updateByIdOenid(@Param("user")User user,@Param("getUser_zh")Integer getUser_zh,@Param("getId")Integer getId,@Param("getOpenid")String getOpenid); 
     //----------------hee------------------------------------------------
         
 }    
