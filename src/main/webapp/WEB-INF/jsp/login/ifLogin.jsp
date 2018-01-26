@@ -26,11 +26,11 @@
         <p class="login-box-msg">请填写用户名密码登陆系统</p>
         <form action="checklog" method="POST" onsubmit="return false" >
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" name="username" placeholder="用户名">
+                <input type="text" class="form-control" name="zh" placeholder="用户名">
                 <span class="glyphicon form-control-feedback fa fa-user fa-lg"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" name="password" placeholder="密码">
+                <input type="password" class="form-control" name="pwd" placeholder="密码">
                 <span class="glyphicon form-control-feedback fa fa-lock fa-lg"></span>
             </div>
             <div class="row form-group">
