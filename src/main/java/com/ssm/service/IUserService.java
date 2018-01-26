@@ -24,7 +24,7 @@ public interface IUserService {
      * user User
      * openid String
      * */
-    public void setByIdOenid(User user,Integer user_zh,String openid);
+    public void setByIdOenid(User user);
   //----------------------hee-------------------------
     
 }    

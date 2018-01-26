@@ -15,6 +15,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.ssm.dto.User;
 import com.ssm.dto.Zh;
 import com.ssm.service.IFoodService;
+import com.ssm.service.ILunboService;
 import com.ssm.service.IUserService;
 import com.ssm.service.IZhService;
 
@@ -27,6 +28,9 @@ public class XcxController {
 	
 	@Resource    
     private IUserService userService;
+	
+	@Resource    
+    private ILunboService lunboService;
 	
 	
 	/*
@@ -96,22 +100,35 @@ public class XcxController {
 		//用户  信息录入数据库
 		User user=new User();
 		//设置对象的值
-		user.setOpenid(zh_appid);
+		user.setOpenid(openid);
 		user.setUser_name(name);
 		user.setUser_url(avatarUrl);
 		user.setUser_sex(gender);
 		user.setUser_province(province);
 		user.setUser_city(city);
+		user.setUser_zh(user_zh);
+		System.out.println(user.getOpenid());
 		//先判断用户存不存在 存在更新 不存在 插入
 		User getUser=userService.getUserByOpenidUser_zh(openid,user_zh);
 		if(getUser!=null) {
-			userService.setByIdOenid(user,user_zh,openid);
+			userService.setByIdOenid(user);
 		}else {
 			userService.insertUser(user);
 		}
 		
 		
 		return res;
+	}
+	
+	/*
+	 * xcx category.js 
+	 * 获取 指定店铺轮播信息
+	 */
+	@RequestMapping("/getLunbo")
+	public String getLunbo(HttpServletRequest request){
+		Integer zh=Integer.parseInt(request.getParameter("zh"));
+		
+		return null;
 	}
 	
 	//Get 方法封装

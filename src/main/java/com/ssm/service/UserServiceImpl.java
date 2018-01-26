@@ -50,8 +50,8 @@ public class UserServiceImpl implements IUserService {
      * user User
      * openid String
      * */
-    public void setByIdOenid(User user,Integer user_zh,String openid) {
-    	userDao.updateByIdOenid(user,user_zh,null,openid);
+    public void setByIdOenid(User user) {
+    	userDao.updateByIdOenid(user);
     }
   //----------------------hee-------------------------
     

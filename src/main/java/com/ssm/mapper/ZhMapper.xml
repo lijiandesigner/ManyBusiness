@@ -116,7 +116,7 @@
 		select
 		<include refid="Base_Column_List" />
 		from zh
-		where 1=1 
+		<where> 
 		 <if test="zh_id != null ">
 		     and zh_id = #{zh_id,jdbcType=INTEGER}
 		 </if>
@@ -126,6 +126,7 @@
 		 <if test="zh_appsecre != null">
 		     and zh_appsecre = #{zh_appsecre,jdbcType=VARCHAR}
 		 </if>
+		 </where>
 	</select>
 	<!--***********************hee************************-->
 </mapper>

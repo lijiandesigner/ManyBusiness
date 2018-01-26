@@ -32,7 +32,7 @@ public interface IUserDao {
     public User queryUserByOpenidUser_zh(@Param("openid")String openid,@Param("user_zh")Integer user_zh);
     
     //更新用户基本 信息
-    public void updateByIdOenid(@Param("user")User user,@Param("getUser_zh")Integer getUser_zh,@Param("getId")Integer getId,@Param("getOpenid")String getOpenid); 
+    public void updateByIdOenid(User user); 
     //----------------hee------------------------------------------------
         
 }    
