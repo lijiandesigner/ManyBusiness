@@ -126,7 +126,7 @@
 		 <if test="zh_appsecre != null">
 		     and zh_appsecre = #{zh_appsecre,jdbcType=VARCHAR}
 		 </if>
-		 </where>
+		</where>
 	</select>
 	<!--***********************hee************************-->
 </mapper>

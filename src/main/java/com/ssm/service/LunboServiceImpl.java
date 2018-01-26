@@ -21,5 +21,18 @@ public class LunboServiceImpl implements ILunboService {
 	@Override    
     public List<Lunbo> getAllLunbo() {    
         return lunboDao.getAllLunbo();    
-    } 
+    }
+	
+	//*******************he*start**************************
+	
+	/*
+	 * 通过 
+	 * lunbo_show  string
+	 * lunbo_zh integer
+	 * */
+	@Override
+	public List<Lunbo>getRowByLunbo(Lunbo lunbo) {
+		return lunboDao.selectRowByLunbo(lunbo);
+	}
+	//*******************he*end****************************
 }

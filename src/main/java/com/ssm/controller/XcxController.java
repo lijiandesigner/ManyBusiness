@@ -1,6 +1,7 @@
 package com.ssm.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import java.net.*;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ssm.dto.Lunbo;
 import com.ssm.dto.User;
 import com.ssm.dto.Zh;
 import com.ssm.service.IFoodService;
@@ -107,7 +109,7 @@ public class XcxController {
 		user.setUser_province(province);
 		user.setUser_city(city);
 		user.setUser_zh(user_zh);
-		System.out.println(user.getOpenid());
+		//System.out.println(user.getOpenid());
 		//先判断用户存不存在 存在更新 不存在 插入
 		User getUser=userService.getUserByOpenidUser_zh(openid,user_zh);
 		if(getUser!=null) {
@@ -125,9 +127,15 @@ public class XcxController {
 	 * 获取 指定店铺轮播信息
 	 */
 	@RequestMapping("/getLunbo")
-	public String getLunbo(HttpServletRequest request){
-		Integer zh=Integer.parseInt(request.getParameter("zh"));
-		
+	public List<Lunbo> getLunbo(HttpServletRequest request){
+//		Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
+//		System.out.println(zh+"sssssssssssss");
+//		Lunbo lunbo=new Lunbo();
+//		lunbo.setLunbo_zh(zh);
+//		lunbo.setLunbo_show("1");
+//		List<Lunbo> lunbo_select=lunboService.getRowByLunbo(lunbo);//得到查询结果
+//		//System.out.println(lunbo_select.getLunbo_name());
+        
 		return null;
 	}
 	

@@ -12,4 +12,12 @@ public interface ILunboDao {
 	
 	public List<Lunbo> getAllLunbo();
 	
+	//*******************he*start**************************
+		/*
+		 * 通过 
+		 * lunbo_show  string
+		 * lunbo_zh integer
+		 * */
+	public List<Lunbo> selectRowByLunbo(Lunbo lunbo);
+	//*******************he*end****************************
 }

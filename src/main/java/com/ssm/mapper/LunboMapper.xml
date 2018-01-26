@@ -74,4 +74,23 @@
 			</if>
 		</trim>
 	</insert>
+	
+	<!-- ***************************hee*star***************************** -->
+	
+	<!-- 获取轮播 列表  通过 必须是 lunbo_show lunbo_zh -->
+	<select id="selectRowByLunbo" resultType="com.ssm.dto.Lunbo">
+		select
+		<include refid="Base_Column_List" />
+		from lunbo
+		<where> 
+		 <if test="lunbo_show != null ">
+		     and lunbo_show = #{lunbo_show,jdbcType=VARCHAR}
+		 </if>
+		 <if test="lunbo_zh != null">
+		     and lunbo_zh = #{lunbo_zh,jdbcType=VARCHAR}
+		 </if>
+		</where>
+		 ORDER BY lunbo_num DESC
+	</select>
+	<!-- ***************************hee*end***************************** -->
 </mapper>
