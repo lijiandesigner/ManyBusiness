@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.ssm.dto.Brand;
+import com.ssm.dto.Food;
 import com.ssm.dto.Lunbo;
 import com.ssm.dto.User;
 import com.ssm.dto.Zh;
+import com.ssm.service.IBrandService;
 import com.ssm.service.IFoodService;
 import com.ssm.service.ILunboService;
 import com.ssm.service.IUserService;
@@ -33,6 +37,12 @@ public class XcxController {
 	
 	@Resource    
     private ILunboService lunboService;
+	
+	@Resource    
+    private IFoodService foodService;
+	
+	@Resource    
+    private IBrandService brandService;
 	
 	
 	/*
@@ -128,14 +138,64 @@ public class XcxController {
 	 */
 	@RequestMapping("/getLunbo")
 	public List<Lunbo> getLunbo(HttpServletRequest request){
-//		Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
-//		System.out.println(zh+"sssssssssssss");
-//		Lunbo lunbo=new Lunbo();
-//		lunbo.setLunbo_zh(zh);
-//		lunbo.setLunbo_show("1");
-//		List<Lunbo> lunbo_select=lunboService.getRowByLunbo(lunbo);//得到查询结果
-//		//System.out.println(lunbo_select.getLunbo_name());
+		Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
+		Lunbo lunbo=new Lunbo();
+		lunbo.setLunbo_zh(zh);
+		lunbo.setLunbo_show("1");
+		List<Lunbo> lunbo_select=lunboService.getRowByLunbo(lunbo);//得到查询结果
+		//System.out.println(lunbo_select);
         
+		return lunbo_select;
+	}
+	
+	/*
+	 * xcx category.js 
+	 * 获取所有商品 
+	 */
+	@RequestMapping("/wx_index_brand")
+	public String wx_index_brand(HttpServletRequest request){
+		Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
+		List<Food> food_select=foodService.getFoodAll(zh);//得到查询结果
+		
+		JSONObject jsonObject = new JSONObject();
+		//过滤 获得数据  
+		for(int i = 0 ; i < food_select.size(); i++) {
+			if(food_select.get(i).getFood_index_show()==1) {//上架物品
+				//System.out.printf("%s\n",food_select.get(i).getFood_name());
+				JSONObject jsonObject2 = new JSONObject();
+				jsonObject2.put("id", food_select.get(i).getId());
+				jsonObject2.put("name", food_select.get(i).getFood_name());
+				jsonObject2.put("pic", food_select.get(i).getFood_pic());//图片
+				jsonObject2.put("sold", food_select.get(i).getFood_num());
+				jsonObject2.put("price", food_select.get(i).getFood_money()/1000);
+				jsonObject2.put("show", food_select.get(i).getFood_index_show());
+				String key=food_select.get(i).getId().toString();	
+				jsonObject.put(key,jsonObject2);
+				System.out.println(jsonObject.get(key));
+			}
+		}
+		
+		return jsonObject.toJSONString(jsonObject, SerializerFeature.DisableCircularReferenceDetect);
+	}
+	
+	/*
+	 * xcx category.js 
+	 * 获取所有 分类
+	 */
+	@RequestMapping("/wx_index_goodsList")
+	public String wx_index_goodsList(HttpServletRequest request){
+		Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
+		List<Brand> brand_select=brandService.getAllBrandOrderBy(zh,"asc");//得到查询结果
+        
+		JSONObject jsonObject = new JSONObject();
+		
+		
+		//过滤 获得数据  
+		for(int i = 0 ; i < brand_select.size(); i++) {
+				JSONObject jsonObject2 = new JSONObject();
+				//jsonObject2.put("id", food_select.get(i).getId());
+		}
+		
 		return null;
 	}
 	

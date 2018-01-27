@@ -16,7 +16,17 @@
 		<result column="food_zh" property="food_zh" jdbcType="INTEGER" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, food_brand, food_pic,food_num,food_kucun,food_money_true,food_money,food_money_yuanjia,food_index_show,food_zh
+		id,
+		food_brand,
+		food_name,
+		food_pic,
+		food_num,
+		food_kucun,
+		food_money_true,
+		food_money,
+		food_money_yuanjia,
+		food_index_show,
+		food_zh
 	</sql>
 	<!-- 查询所有商品   -->
 	
@@ -24,7 +34,7 @@
 	<select id="selectAll" resultMap="BaseResultMapFood">
 		select
 		<include refid="Base_Column_List" />
-		from food
+		from food where food_zh=#{food_zh,jdbcType=INTEGER}
 	</select>
 	<!-- 查询商品通过id -->
 	<select id="selectById" resultMap="BaseResultMapFood"

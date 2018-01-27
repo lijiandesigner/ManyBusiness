@@ -21,5 +21,15 @@ public class BrandServiceImpl implements IBrandService {
     public List<Brand> selectAllBrand() {    
         return brandDao.selectAllBrand();   
         
-    } 
+    }
+	
+	//----------------hee------------------------------------------------
+	    /* 获取 所有分类
+	     * OrderBy  string  排序方式 大写
+	     * */
+	 @Override 
+	 public List<Brand> getAllBrandOrderBy(Integer brand_zh,String OrderBy){
+		 return brandDao.selectAllBrandOrderBy(brand_zh,OrderBy);
+	 }
+	//----------------hee------------------------------------------------
 }

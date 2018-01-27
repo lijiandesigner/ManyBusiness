@@ -19,7 +19,7 @@ public interface IFoodDao {
 	 * @return 
 	 */
 	
-	public List<Food> selectAll();
+	public List<Food> selectAll(Integer food_zh);
 	
 	/**
 	 * @param _id 

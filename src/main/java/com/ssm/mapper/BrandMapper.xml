@@ -59,4 +59,19 @@
 			</if>
 		</trim>
 	</insert>
+	
+	<!-- ***************************hee*start***************************** -->
+	
+	<!-- 查询所有商品   -->
+	<select id="selectAllBrandOrderBy" resultMap="BaseResultMapBrand">
+		select
+		<include refid="Base_Column_List" />
+		from brand
+		where brand_zh=#{brand_zh,jdbcType=INTEGER},
+		<if test="OrderBy != null">
+			ORDER BY brand_num #{OrderBy,jdbcType=VARCHAR},
+		</if>
+	</select>
+	
+	<!-- ***************************hee*end***************************** -->
 </mapper>
