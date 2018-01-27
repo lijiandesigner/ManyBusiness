@@ -94,6 +94,13 @@
 		</dependency>
 		<!-- spring框架包 end -->
 		<!-- mybatis框架包 start -->
+		<!-- 引入分页包 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>5.0.2</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>

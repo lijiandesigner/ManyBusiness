@@ -23,4 +23,7 @@ public class DingdanServiceImpl implements IDingdanService {
         return dingdanDao.getAllDingdan();    
         
     } 
+	public List<Dingdan> selectByList() {
+        return this.dingdanDao.selectByList();
+    }
 }

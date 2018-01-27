@@ -9,5 +9,6 @@ public interface IDingdanService {
 	
 	
 	public List<Dingdan> getAllDingdan();
+	public List<Dingdan> selectByList();
 	
 }

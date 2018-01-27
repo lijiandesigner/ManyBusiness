@@ -8,5 +8,5 @@ public interface IDingdanDao {
 	 public List<Dingdan> getAllDingdan(); 
 	 
 	 public void insertDingdan(Dingdan Dingdan);
-	 
+	 public List<Dingdan> selectByList();
 }
