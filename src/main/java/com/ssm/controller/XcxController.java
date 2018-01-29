@@ -183,20 +183,36 @@ public class XcxController {
 	 * 获取所有 分类
 	 */
 	@RequestMapping("/wx_index_goodsList")
-	public String wx_index_goodsList(HttpServletRequest request){
-		Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
-		List<Brand> brand_select=brandService.getAllBrandOrderBy(zh,"asc");//得到查询结果
-        
-		JSONObject jsonObject = new JSONObject();
+	public List<Brand> wx_index_goodsList(HttpServletRequest request){
+		//Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
+		Integer zh=1;
+		List<Brand> brand_select=brandService.getAllBrandOrderBy(zh,"desc");//得到查询结果
+        		
+		//获取 food 中所有不 显示的商品 id
+		List<Food> food_id=foodService.getByfood_index_show(zh,0);//得到查询结果
 		
-		
+		JSONObject jsonObject1 = new JSONObject();
 		//过滤 获得数据  
-		for(int i = 0 ; i < brand_select.size(); i++) {
+		for(Integer i = 0 ; i < brand_select.size(); i++) {
 				JSONObject jsonObject2 = new JSONObject();
-				//jsonObject2.put("id", food_select.get(i).getId());
+				jsonObject2.put("id", brand_select.get(i).getId());
+				jsonObject2.put("pic", brand_select.get(i).getBrand_pic());
+				jsonObject2.put("classifyName", brand_select.get(i).getBrand_name());
+				
+				brand_select.get(i).getBrand_goods();
+				//剔除 下架商品
+				if(food_id!=null) {
+					for(Integer x = 0 ; x < food_id.size(); x++) {
+						
+					}					
+				}
+				jsonObject2.put("goods","");
+				jsonObject2.put("select_goods",new int[0]);
+				jsonObject2.put("num", "");
+				jsonObject1.put(i.toString(),jsonObject2);
 		}
 		
-		return null;
+		return brand_select;
 	}
 	
 	//Get 方法封装

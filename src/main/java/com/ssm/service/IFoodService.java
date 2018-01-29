@@ -14,5 +14,10 @@ public interface IFoodService {
 		 * 获取所有商品
 		 * */
 	public List<Food> getFoodAll(Integer food_zh);
+	
+	/*
+	 * 查询 下架 商品  id
+	 * */
+	public List<Food> getByfood_index_show(Integer food_zh,Integer food_index_show);
 	//*******************he*end****************************
 }

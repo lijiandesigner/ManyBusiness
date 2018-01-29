@@ -44,4 +44,18 @@
 		from food
 		where id = #{_id,jdbcType=INTEGER}
 	</select>
+	
+	<!-- ***************************hee*start***************************** -->
+	
+	<!-- 查询 下架 商品  id-->
+	<select id="selectByfood_index_show" resultMap="BaseResultMapFood"
+		parameterType="java.lang.Integer">
+		select
+		id
+		from food
+		where food_index_show = #{food_index_show,jdbcType=INTEGER}
+		and food_zh = #{food_zh,jdbcType=INTEGER}
+	</select>
+	
+	<!-- ***************************hee*end******************************* -->
 </mapper>

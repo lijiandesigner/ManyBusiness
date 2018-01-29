@@ -6,12 +6,13 @@
 		<result column="id" property="id" jdbcType="INTEGER" />
 		<result column="brand_name" property="brand_name" jdbcType="VARCHAR" />
 		<result column="brand_pic" property="brand_pic" jdbcType="VARCHAR" />
-		<result column="brand_num" property="brand_goods" jdbcType="VARCHAR" />
+		<result column="brand_num" property="brand_num" jdbcType="VARCHAR" />
+		<result column="brand_goods" property="brand_goods" jdbcType="VARCHAR" />
 		<result column="brand_zh" property="brand_zh" jdbcType="INTEGER" />
 	</resultMap>
 	
 	<sql id="Base_Column_List">
-		id,brand_name,brand_pic,brand_num,brand_zh
+		id,brand_name,brand_pic,brand_num,brand_goods,brand_zh
 	</sql>
 	
 	<!-- 查询所有商品   -->
@@ -67,9 +68,9 @@
 		select
 		<include refid="Base_Column_List" />
 		from brand
-		where brand_zh=#{brand_zh,jdbcType=INTEGER},
+		where brand_zh=#{brand_zh,jdbcType=INTEGER}
 		<if test="OrderBy != null">
-			ORDER BY brand_num #{OrderBy,jdbcType=VARCHAR},
+			ORDER BY brand_num ${OrderBy}
 		</if>
 	</select>
 	
