@@ -7,8 +7,16 @@ public interface IDingdanService {
 	
 	
 	
+	//---------------------------buzhiweihe-------------------
 	
-	public List<Dingdan> getAllDingdan();
+	/*
+	 * 根据商户id查询该商户的所有已完成订单信息
+	 */
+		public List<Dingdan> getAllDingdan(Integer zh_zh);
+	//---------------------------buzhiweihe-------------------
+	
 	public List<Dingdan> selectByList();
+	
+
 	
 }

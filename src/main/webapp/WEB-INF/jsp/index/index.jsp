@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html >
 <head>
 	<title>商城后台</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -27,7 +27,7 @@
 	<script type="text/javascript" src="..//system/kindeditor/lang/zh-CN.js"></script>
 
 </head>
-<body class="hold-transition skin-blue fixed sidebar-mini">
+<body class="hold-transition skin-blue fixed sidebar-mini" >
 	<div class="wrapper">
 
      <header class="main-header">
@@ -89,7 +89,7 @@
             <ul class="sidebar-menu">
                 <li class="header">菜单</li>
                     <li class="treeview"><a href="../dingdan/all" target="keke" ><i class="fa fa-home"></i><span>收银台</span></a></li>
-                    <li class="treeview"><a href="#"><i class="fa fa-home" target="keke" ></i><span>订单管理</span></a></li>
+                    <li class="treeview"><a href="../dingdan/allList" target="keke"><i class="fa fa-home" target="keke" ></i><span>订单管理</span></a></li>
                     <li class="treeview"><a href="#"><i class="fa fa-home" target="keke" ></i><span>分类管理</span></a></li>
                     <li class="treeview"><a href="#"><i class="fa fa-home" target="keke" ></i><span>商品管理</span></a></li>
                     <li class="treeview"><a href="#"><i class="fa fa-magic" target="keke" ></i><span>桌号管理</span></a></li>
@@ -112,7 +112,7 @@
   			var wh=$(".main-header").height();
   			var bh=$(window).height();
   			var lw=$(".sidebar").width();
-  			alert(wh+"   "+lw);
+  			
   			$("iframe").css({"height":bh-wh,"width":ww-lw});
   		})
   	</script>

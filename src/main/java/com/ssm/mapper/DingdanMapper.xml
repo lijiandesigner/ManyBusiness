@@ -27,13 +27,17 @@
 	<sql id="Base_Column_List">
 		id,dingdan_openid,dingdan_phone,dingdan_name,dingdan_sex,dingdan_dizhi,dingdan_menpai,dingdan_remark,dingdan_num,dingdan_shops,dingdan_moneys,dingdan_money,dingdan_profit,dingdan_buff,dingdan_table,dingdan_time_s,dingdan_time_e,dingdan_zh
 	</sql>
+	<!-- ******************************************buzhiweihe******************************************* -->
+			<!-- 查询所有已完成订单 -->
+			<select id="getAllDingdan" resultMap="BaseResultMapDingdan">
+				select
+				id,dingdan_openid,dingdan_phone,dingdan_name,dingdan_sex,dingdan_dizhi,dingdan_menpai,dingdan_remark,dingdan_num,dingdan_shops,dingdan_moneys,dingdan_money,dingdan_profit,dingdan_buff,dingdan_table,dingdan_time_s,dingdan_time_e,dingdan_zh
+				from dingdan where dingdan_zh=#{zh_zh,jdbcType=INTEGER} and dingdan_buff=2
+			</select>
 	
-	<select id="getAllDingdan" resultMap="BaseResultMapDingdan">
-		select
-		id,dingdan_openid,dingdan_phone,dingdan_name,dingdan_sex,dingdan_dizhi,dingdan_menpai,dingdan_remark,dingdan_num,dingdan_shops,dingdan_moneys,dingdan_money,dingdan_profit,dingdan_buff,dingdan_table,dingdan_time_s,dingdan_time_e,dingdan_zh
-		from dingdan
-	</select>
 	
+	<!-- ******************************************buzhiweihe******************************************* -->
+
 	<!-- 分页查询 -->
 	<select id="selectByList" resultMap="BaseResultMapDingdan">
     select 

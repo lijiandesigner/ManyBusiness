@@ -11,6 +11,7 @@ import com.ssm.dto.Dingdan;
 
 @Service("dingdanService")
 public class DingdanServiceImpl implements IDingdanService {
+	private static final String Integer = null;
 	@Resource    
     private IDingdanDao dingdanDao;
 	
@@ -19,11 +20,14 @@ public class DingdanServiceImpl implements IDingdanService {
     }
 	
 	@Override            
-    public List<Dingdan> getAllDingdan() {    
-        return dingdanDao.getAllDingdan();    
+    public List<Dingdan> getAllDingdan(Integer zh_zh) {    
+        return dingdanDao.getAllDingdan(zh_zh);    
         
     } 
 	public List<Dingdan> selectByList() {
         return this.dingdanDao.selectByList();
     }
+	
+
+	
 }
