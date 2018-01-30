@@ -3,6 +3,7 @@
 <mapper namespace="com.ssm.dao.IDizhiDao">
 	<resultMap id="BaseResultMap" type="com.ssm.dto.Dizhi">
 		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="dizhi_user" property="dizhi_user" jdbcType="INTEGER" />
 		<result column="dizhi_name" property="dizhi_name" jdbcType="VARCHAR" />
 		<result column="dizhi_sex" property="dizhi_sex" jdbcType="VARCHAR" />
 		<result column="dizhi_phone" property="dizhi_phone" jdbcType="VARCHAR" />
@@ -13,7 +14,7 @@
 	</resultMap>
 	
 	<sql id="Base_Column_List">
-		id,dizhi_name,dizhi_sex,dizhi_phone,dizhi_dizhi,dizhi_menpai,dizhi_select,dizhi_zh
+		id,dizhi_user,dizhi_name,dizhi_sex,dizhi_phone,dizhi_dizhi,dizhi_menpai,dizhi_select,dizhi_zh
 	</sql>
 	
 	<!-- 查询用户 -->
@@ -37,9 +38,7 @@
 			</if>
 			<if test="dizhi_phone != null">
 				dizhi_phone,
-			</if>
-			
-			
+			</if>			
 			<if test="dizhi_dizhi != null">
 				dizhi_dizhi,
 			</if>
@@ -80,4 +79,42 @@
 			</if>
 		</trim>
 	</insert>
+	
+	<!-- ***************************hee*start***************************** -->
+	
+	<!-- 根据 dizhi_zh和dizhi_user 获取用户对应的 地址 List对象  -->
+	<select id="getDizhiByZhUser" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from dizhi
+		<where> 
+		 <if test="dizhi_zh != null ">
+		     and dizhi_zh = #{dizhi_zh,jdbcType=INTEGER}
+		 </if>
+		 <if test="dizhi_user != null">
+		     and dizhi_user = #{dizhi_user,jdbcType=VARCHAR}
+		 </if>
+		</where>
+	</select>
+	
+	<!-- 根据 dizhi_zh和dizhi_user dizhi_select 获取用户对应的 地址 List对象  -->
+	<select id="getDizhiByZhUser" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from dizhi
+		<where> 
+		 <if test="dizhi_zh != null ">
+		     and dizhi_zh = #{dizhi_zh,jdbcType=INTEGER}
+		 </if>
+		 <if test="dizhi_user != null">
+		     and dizhi_user = #{dizhi_user,jdbcType=VARCHAR}
+		 </if>
+		 <if test="dizhi_select != null">
+		     and dizhi_select = #{dizhi_select,jdbcType=INTEGER}
+		 </if>
+		</where>
+	</select>
+	
+	
+	<!-- ***************************hee*end******************************* -->
 </mapper>

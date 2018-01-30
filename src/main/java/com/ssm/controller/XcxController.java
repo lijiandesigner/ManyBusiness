@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ssm.dto.Brand;
+import com.ssm.dto.Dizhi;
 import com.ssm.dto.Food;
 import com.ssm.dto.Lunbo;
 import com.ssm.dto.User;
 import com.ssm.dto.Zh;
 import com.ssm.service.IBrandService;
+import com.ssm.service.IDizhiService;
 import com.ssm.service.IFoodService;
 import com.ssm.service.ILunboService;
 import com.ssm.service.IUserService;
@@ -44,6 +46,9 @@ public class XcxController {
 	
 	@Resource    
     private IBrandService brandService;
+	
+	@Resource    
+    private IDizhiService dizhiService;
 	
 	
 	
@@ -230,20 +235,43 @@ public class XcxController {
 		return jsonObject1;
 	}
 	
-	
-	
+	/*
+	 * xcx category.js 
+	 * 获取所有 地址
+	 */
 	@RequestMapping("/dizhi_select")
-	public JSONObject dizhi_select(HttpServletRequest request){
-		//Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
-		//String openid=request.getParameter("openid");//获取post参数
-		Integer zh=1;
-		String openid="ousEf0YdCYgPBMco5t-GM_J-DHy8";
+	public List<Dizhi> dizhi_select(HttpServletRequest request){
+		Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
+		String openid=request.getParameter("openid");//获取post参数
+//		Integer zh=1;
+//		String openid="ousEf0YdCYgPBMco5t-GM_J-DHy8";
 		
 		User user_id=userService.getUserByOpenidUser_zh(openid,zh);//包含 需要信息 的对象（id）
-		//List<Food> food_select=foodService.getFoodAll(zh);
+		List<Dizhi> dizhi=dizhiService.selectDizhiByZhUser(user_id.getId(),zh);
+				
+		return dizhi;
+	}
+	
+	/*
+	 * xcx dizhi_add中add.js 
+	 * 获取所有 地址
+	 */
+	@RequestMapping("/dizhi_add")
+	public void dizhi_add(HttpServletRequest request){
+		Integer dizhi_zh=Integer.parseInt(request.getParameter("dizhi_zh"));//dizhi_zh
+		String openid=request.getParameter("openid");//获取post参数
+		User user_id=userService.getUserByOpenidUser_zh(openid,dizhi_zh);
+		Integer dizhi_user=user_id.getId();
+		String dizhi_name=request.getParameter("dizhi_name");//获取post参数
+		String dizhi_sex=request.getParameter("dizhi_sex");//获取post参数
+		String dizhi_phone=request.getParameter("dizhi_phone");//获取post参数
+		String dizhi_dizhi=request.getParameter("dizhi_dizhi");//获取post参数
+		String dizhi_menpai=request.getParameter("dizhi_menpai");//获取post参数
+		Integer dizhi_select=1;
+		
+		//根据 user_id 把 dizhi_select=1 改为0
 		
 		
-		return null;
 	}
 
 	
