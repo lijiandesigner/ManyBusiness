@@ -46,9 +46,9 @@ public class UserServiceImpl implements IUserService {
     	return null;
     }
     
-    /* 根据 openid 和 user_zh 确定用户
-     * user User
-     * openid String
+    /* 
+     * 根据getOpenid | getId更新指定 user字段
+     * 信息都在 参数 user中
      * */
     public void setByIdOenid(User user) {
     	userDao.updateByIdOenid(user);

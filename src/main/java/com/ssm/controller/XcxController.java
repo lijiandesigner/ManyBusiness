@@ -1,5 +1,6 @@
 package com.ssm.controller;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -43,6 +44,7 @@ public class XcxController {
 	
 	@Resource    
     private IBrandService brandService;
+	
 	
 	
 	/*
@@ -183,9 +185,9 @@ public class XcxController {
 	 * 获取所有 分类
 	 */
 	@RequestMapping("/wx_index_goodsList")
-	public List<Brand> wx_index_goodsList(HttpServletRequest request){
-		//Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
-		Integer zh=1;
+	public JSONObject wx_index_goodsList(HttpServletRequest request){
+		Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
+		//Integer zh=1;
 		List<Brand> brand_select=brandService.getAllBrandOrderBy(zh,"desc");//得到查询结果
         		
 		//获取 food 中所有不 显示的商品 id
@@ -199,21 +201,51 @@ public class XcxController {
 				jsonObject2.put("pic", brand_select.get(i).getBrand_pic());
 				jsonObject2.put("classifyName", brand_select.get(i).getBrand_name());
 				
-				brand_select.get(i).getBrand_goods();
+				String arr_string=brand_select.get(i).getBrand_goods();//获得 goods 字符串 去掉 两边[]
+				
+				arr_string=arr_string.replace(arr_string.charAt(0)+"","");
+				arr_string=arr_string.replace(arr_string.charAt(arr_string.length()-1)+"","");
+				String [] stringArr= arr_string.split(",");
+							
 				//剔除 下架商品
 				if(food_id!=null) {
-					for(Integer x = 0 ; x < food_id.size(); x++) {
-						
-					}					
+					for(Food list : food_id){
+						String ifok=list.getId().toString();
+						int a = Arrays.binarySearch(stringArr,ifok);
+						if(a>0) {
+							stringArr[a] = stringArr[stringArr.length-1];
+							stringArr = Arrays.copyOf(stringArr, stringArr.length-1);
+							System.out.println("存在"+a);
+							
+						}
+			            //System.out.println(list.getId());
+			        }				
 				}
-				jsonObject2.put("goods","");
+				jsonObject2.put("goods",stringArr);
 				jsonObject2.put("select_goods",new int[0]);
 				jsonObject2.put("num", "");
 				jsonObject1.put(i.toString(),jsonObject2);
 		}
 		
-		return brand_select;
+		return jsonObject1;
 	}
+	
+	
+	
+	@RequestMapping("/dizhi_select")
+	public JSONObject dizhi_select(HttpServletRequest request){
+		//Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
+		//String openid=request.getParameter("openid");//获取post参数
+		Integer zh=1;
+		String openid="ousEf0YdCYgPBMco5t-GM_J-DHy8";
+		
+		User user_id=userService.getUserByOpenidUser_zh(openid,zh);//包含 需要信息 的对象（id）
+		//List<Food> food_select=foodService.getFoodAll(zh);
+		
+		
+		return null;
+	}
+
 	
 	//Get 方法封装
 	public static String doGet(String url) throws Exception {    
