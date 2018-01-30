@@ -87,18 +87,18 @@
 		select
 		<include refid="Base_Column_List" />
 		from dizhi
-		<where> 
+		<where>
 		 <if test="dizhi_zh != null ">
-		     and dizhi_zh = #{dizhi_zh,jdbcType=INTEGER}
+		     and dizhi_zh = #{dizhi_zh,jdbcType=INTEGER},
 		 </if>
 		 <if test="dizhi_user != null">
-		     and dizhi_user = #{dizhi_user,jdbcType=VARCHAR}
+		     and dizhi_user = #{dizhi_user,jdbcType=VARCHAR},
 		 </if>
 		</where>
 	</select>
 	
 	<!-- 根据 dizhi_zh和dizhi_user dizhi_select 获取用户对应的 地址 List对象  -->
-	<select id="getDizhiByZhUser" resultMap="BaseResultMap">
+	<select id="aaa" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from dizhi

@@ -258,16 +258,16 @@ public class XcxController {
 	 */
 	@RequestMapping("/dizhi_add")
 	public void dizhi_add(HttpServletRequest request){
-		Integer dizhi_zh=Integer.parseInt(request.getParameter("dizhi_zh"));//dizhi_zh
-		String openid=request.getParameter("openid");//获取post参数
-		User user_id=userService.getUserByOpenidUser_zh(openid,dizhi_zh);
-		Integer dizhi_user=user_id.getId();
-		String dizhi_name=request.getParameter("dizhi_name");//获取post参数
-		String dizhi_sex=request.getParameter("dizhi_sex");//获取post参数
-		String dizhi_phone=request.getParameter("dizhi_phone");//获取post参数
-		String dizhi_dizhi=request.getParameter("dizhi_dizhi");//获取post参数
-		String dizhi_menpai=request.getParameter("dizhi_menpai");//获取post参数
-		Integer dizhi_select=1;
+//		Integer dizhi_zh=Integer.parseInt(request.getParameter("dizhi_zh"));//dizhi_zh
+//		String openid=request.getParameter("openid");//获取post参数
+//		User user_id=userService.getUserByOpenidUser_zh(openid,dizhi_zh);
+//		Integer dizhi_user=user_id.getId();
+//		String dizhi_name=request.getParameter("dizhi_name");//获取post参数
+//		String dizhi_sex=request.getParameter("dizhi_sex");//获取post参数
+//		String dizhi_phone=request.getParameter("dizhi_phone");//获取post参数
+//		String dizhi_dizhi=request.getParameter("dizhi_dizhi");//获取post参数
+//		String dizhi_menpai=request.getParameter("dizhi_menpai");//获取post参数
+//		Integer dizhi_select=1;
 		
 		//根据 user_id 把 dizhi_select=1 改为0
 		
