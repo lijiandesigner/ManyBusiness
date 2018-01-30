@@ -1,9 +1,19 @@
 package com.ssm.controller;
 
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
-
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReadParam;
+import javax.imageio.ImageReader;
+import javax.imageio.stream.ImageInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -52,6 +62,47 @@ public class DingdanController {
 	    mv.setViewName("order/all");
 	    return mv;
 	  }
+	@RequestMapping("/ce")
+	 private static void cutImage() throws IOException {
+        String type = "jpg";
+        // 裁剪的位置
+        int x = 100;
+        int y = 100;
+        int width = 200;
+        int height = 200;
+        File str = new File("../kekekeke");
+		if(!str.exists()){
+			str.mkdirs();
+		}
+        // 文件地址
+      /*  File file = new File("../../user/a.jpg");
+        InputStream input = new FileInputStream(file); 
+        ImageInputStream imageStream = null;
+        try {
+            // 图片类型 默认 jpg
+            String imageType = (null == type || "".equals(type)) ? "jpg" : type;
+            // 将图片转化为 imageReader
+            Iterator<ImageReader> readers = ImageIO.getImageReadersByFormatName(imageType);
+            ImageReader reader = readers.next();
+            // 读入图片
+            imageStream = ImageIO.createImageInputStream(input);
+            reader.setInput(imageStream, true);
+            // 参数
+            ImageReadParam param = reader.getDefaultReadParam();
+            // 图片裁剪范围
+            Rectangle rect = new Rectangle(x, y, width, height);
+            param.setSourceRegion(rect);
+            // 裁剪出图片
+            BufferedImage bi = reader.read(0, param);
+            // 输出达到文件夹
+            ImageIO.write(bi, imageType, new File("../webapp/user/da.jpg")); 
+        } catch (Exception e) {
+
+        } finally {
+            // 关闭stream
+            imageStream.close();
+        }*/
+    }
 	
 	
 	

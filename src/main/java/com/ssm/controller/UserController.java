@@ -1,5 +1,7 @@
 package com.ssm.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import javax.annotation.Resource;    
 import javax.servlet.http.HttpServletRequest;
@@ -9,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ssm.dto.User;
@@ -29,7 +34,38 @@ public class UserController {
         List<User> uList = userService.getAllUser();    
         model.addAttribute("uList", uList);    
         return "userList";    
-    }    
+    }
+    @RequestMapping("/geren")
+    public String geren(HttpServletRequest request) {
+    	MultipartHttpServletRequest mhsr=(MultipartHttpServletRequest) request;
+    	MultipartFile file=mhsr.getFile("file");
+    	String name = file.getName(); 
+
+        System.out.println(name);//得到的是file 
+        
+        String originalFilename = file.getOriginalFilename(); 
+
+        System.out.println(originalFilename);//得到上传的文件名全称 
+        File dest=new File(originalFilename);
+        try {
+			file.transferTo(dest);
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+    	return "/geren";
+    }
+    @RequestMapping("/a")
+    public ModelAndView geren(ModelAndView mv) {
+    	mv.setViewName("/user/geren");
+    	return mv;
+    }
+    	
+    
         
     @RequestMapping("/showUser")    
     public String showUser(HttpServletRequest request,Model model){    
