@@ -60,7 +60,7 @@
                                 <p>苏晓信<small>Member since admin</small></p>
                             </li>
                             <li class="user-footer">
-                                <div class="pull-left"><a href="{:url('User/edit', ['id' => cookie('uid')])}" class="btn btn-default btn-flat">个人设置</a></div>
+                                <div class="pull-left"><a href="../user/a" target="keke" class="btn btn-default btn-flat">个人设置</a></div>
                                 <div class="pull-right"><a href="{:url('Login/loginOut')}" class="btn btn-default btn-flat">退出</a></div>
                             </li>
                         </ul>

@@ -29,13 +29,14 @@ import com.github.pagehelper.PageInfo;
 import com.ssm.dto.Dingdan;
 import com.ssm.service.IDingdanService;
 import com.ssm.service.IZhService;
+import com.ssm.controller.PublicCommZip;
 
 @RestController    
 @RequestMapping("/dingdan")    
 public class DingdanController {
 	@Resource    
     private IDingdanService dingdanService; 
-	
+//------------------------------buzhiweihe--------------------------------------------------------------	
 	@RequestMapping("/all")
     public List<Dingdan>  all(){
 		List<Dingdan> m=dingdanService.getAllDingdan(1);
@@ -64,18 +65,21 @@ public class DingdanController {
 	  }
 	@RequestMapping("/ce")
 	 private static void cutImage() throws IOException {
+		PublicCommZip imgobj=new PublicCommZip();
+		
+		imgobj.zipWidthHeightImageFile(new File("D:\\image\\x.jpg"),new File("D:\\image\\dd.jpg"),425,638,0.9f);
         String type = "jpg";
-        // 裁剪的位置
-        int x = 100;
-        int y = 100;
-        int width = 200;
-        int height = 200;
-        File str = new File("../kekekeke");
-		if(!str.exists()){
+        // 裁剪的位置C:\\spider\\
+        int x = 10;
+        int y = 10;
+        int width = 100;
+        int height = 100;
+      //  File str = new File("../kekekeke");
+		/*if(!str.exists()){
 			str.mkdirs();
-		}
+		}*/
         // 文件地址
-      /*  File file = new File("../../user/a.jpg");
+       /* File file = new File("c.jpg");
         InputStream input = new FileInputStream(file); 
         ImageInputStream imageStream = null;
         try {
@@ -95,13 +99,17 @@ public class DingdanController {
             // 裁剪出图片
             BufferedImage bi = reader.read(0, param);
             // 输出达到文件夹
-            ImageIO.write(bi, imageType, new File("../webapp/user/da.jpg")); 
+            ImageIO.write(bi, imageType, new File("C:/Users/ting/git/ManyBusiness/src/main/webapp/d.jpg")); 
         } catch (Exception e) {
 
         } finally {
             // 关闭stream
             imageStream.close();
         }*/
+        
+        
+        
+//------------------------------buzhiweihe------------------------------------------------------
     }
 	
 	

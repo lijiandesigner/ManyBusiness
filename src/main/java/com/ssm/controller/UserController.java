@@ -35,35 +35,7 @@ public class UserController {
         model.addAttribute("uList", uList);    
         return "userList";    
     }
-    @RequestMapping("/geren")
-    public String geren(HttpServletRequest request) {
-    	MultipartHttpServletRequest mhsr=(MultipartHttpServletRequest) request;
-    	MultipartFile file=mhsr.getFile("file");
-    	String name = file.getName(); 
-
-        System.out.println(name);//得到的是file 
-        
-        String originalFilename = file.getOriginalFilename(); 
-
-        System.out.println(originalFilename);//得到上传的文件名全称 
-        File dest=new File(originalFilename);
-        try {
-			file.transferTo(dest);
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-    	return "/geren";
-    }
-    @RequestMapping("/a")
-    public ModelAndView geren(ModelAndView mv) {
-    	mv.setViewName("/user/geren");
-    	return mv;
-    }
+   
     	
     
         
@@ -92,19 +64,39 @@ public class UserController {
 
     }*/  
 //---------------------------bzwh---------------------------------------
-    public void lo() {
-    	
-    	
-    };
-    
-    @RequestMapping("/buzhi")
-    public String buzhi() {
-    	return "dd";
+    @RequestMapping("/geren")
+    public String geren(HttpServletRequest request) {
+    	MultipartHttpServletRequest mhsr=(MultipartHttpServletRequest) request;
+    	MultipartFile file=mhsr.getFile("file");
+    	String name = file.getName(); 
+
+        System.out.println(name);//得到的是file 
+        
+        String originalFilename = file.getOriginalFilename(); 
+
+        System.out.println(originalFilename);//得到上传的文件名全称 
+        File dest=new File("D:\\image\\"+originalFilename);
+        try {
+			file.transferTo(dest);
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+    	return "/geren";
+    }
+    @RequestMapping("/a")
+    public ModelAndView geren(ModelAndView mv) {
+    	mv.setViewName("/user/geren");
+    	return mv;
     }
   //---------------------------bzwh---------------------------------------
   
 //--------------------------hee-----------------------------------   
-    @RequestMapping("/login")    
+    @RequestMapping("/login")   
     public @ResponseBody User login(HttpServletRequest request){    
     	 /*return "redirect:/brand/all";*/
     	 String aa=request.getParameter("id"); 
