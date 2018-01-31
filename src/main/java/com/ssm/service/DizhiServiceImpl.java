@@ -15,7 +15,7 @@ public class DizhiServiceImpl implements IDizhiService{
 	@Resource    
     private IDizhiDao dizhiDao;
 	public void insertDizhi(Dizhi dizhi) {    
-        dizhiDao.insertDizhi(dizhi);    
+        dizhiDao.inserDizhi(dizhi);    
     }
 	
 	@Override    
@@ -31,11 +31,28 @@ public class DizhiServiceImpl implements IDizhiService{
      * */
 	@Override 
 	public List<Dizhi> selectDizhiByZhUser(Integer dizhi_zh,Integer dizhi_user){
-		List<Dizhi> dizhi=dizhiDao.getDizhiByZhUser(dizhi_zh,dizhi_user);
+		List<Dizhi> dizhi=dizhiDao.getDizhiByZhUser(dizhi_zh,dizhi_user,null);
 		if(dizhi==null) {
 			return null;
 		}
 		return dizhi;
 	}
+	
+	/* dizhi_zh dizhi_user 确定数据 把 dizhi_select 更新为0
+     * dizhi_zh Integer
+     * dizhi_user Integer
+     * */
+	@Override 
+	public void setByBuff(Integer dizhi_zh,Integer dizhi_user){
+		dizhiDao.updateByBuff(dizhi_zh,dizhi_user);
+	}
+	
+	/* 更新  dizhi_name dizhi_sex dizhi_phone dizhi_dizhi dizhi_menpai 根据 id
+     * */
+	@Override 
+	public void setateById(Dizhi dizhi){
+		dizhiDao.updateById(dizhi);
+	}
+	
 	//----------------hee*end------------------------------------------------
 }

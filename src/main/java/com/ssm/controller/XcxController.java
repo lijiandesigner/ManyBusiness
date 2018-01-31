@@ -240,38 +240,92 @@ public class XcxController {
 	 * 获取所有 地址
 	 */
 	@RequestMapping("/dizhi_select")
-	public List<Dizhi> dizhi_select(HttpServletRequest request){
+	public JSONObject dizhi_select(HttpServletRequest request){
 		Integer zh=Integer.parseInt(request.getParameter("zh"));//获取post参数
 		String openid=request.getParameter("openid");//获取post参数
 //		Integer zh=1;
 //		String openid="ousEf0YdCYgPBMco5t-GM_J-DHy8";
 		
 		User user_id=userService.getUserByOpenidUser_zh(openid,zh);//包含 需要信息 的对象（id）
-		List<Dizhi> dizhi=dizhiService.selectDizhiByZhUser(user_id.getId(),zh);
-				
-		return dizhi;
+		
+		List<Dizhi> dizhi=dizhiService.selectDizhiByZhUser(zh,user_id.getId());
+		System.out.println(user_id.getId()+"aa"+zh+dizhi);	
+		JSONObject jsonObject1 = new JSONObject();
+		for(Dizhi list : dizhi){
+			JSONObject jsonObject2 = new JSONObject();
+			jsonObject2.put("id",list.getId());
+			jsonObject2.put("dizhi",list.getDizhi_dizhi());
+			jsonObject2.put("name",list.getDizhi_name());
+			jsonObject2.put("sex",list.getDizhi_sex());
+			jsonObject2.put("phone",list.getDizhi_phone());
+			jsonObject2.put("menpai",list.getDizhi_menpai());
+			jsonObject2.put("select",list.getDizhi_select());
+			jsonObject1.put(list.getId().toString(),jsonObject2);
+        }
+		
+		return jsonObject1;
 	}
 	
 	/*
 	 * xcx dizhi_add中add.js 
-	 * 获取所有 地址
+	 * 添加新地址
 	 */
 	@RequestMapping("/dizhi_add")
 	public void dizhi_add(HttpServletRequest request){
-//		Integer dizhi_zh=Integer.parseInt(request.getParameter("dizhi_zh"));//dizhi_zh
-//		String openid=request.getParameter("openid");//获取post参数
-//		User user_id=userService.getUserByOpenidUser_zh(openid,dizhi_zh);
-//		Integer dizhi_user=user_id.getId();
-//		String dizhi_name=request.getParameter("dizhi_name");//获取post参数
-//		String dizhi_sex=request.getParameter("dizhi_sex");//获取post参数
-//		String dizhi_phone=request.getParameter("dizhi_phone");//获取post参数
-//		String dizhi_dizhi=request.getParameter("dizhi_dizhi");//获取post参数
-//		String dizhi_menpai=request.getParameter("dizhi_menpai");//获取post参数
-//		Integer dizhi_select=1;
+		Integer dizhi_zh=Integer.parseInt(request.getParameter("dizhi_zh"));//dizhi_zh
+		String openid=request.getParameter("openid");//获取post参数
 		
+		//实现 新添加的 地址为选中 状态  要把原来的 选中状态关掉
+		User user_id=userService.getUserByOpenidUser_zh(openid,dizhi_zh);//获取dizhi_user
+		Integer dizhi_user=user_id.getId();//获取dizhi_user
 		//根据 user_id 把 dizhi_select=1 改为0
+		dizhiService.setByBuff(dizhi_zh, dizhi_user);
 		
+		String dizhi_name=request.getParameter("dizhi_name");//获取post参数
+		String dizhi_sex=request.getParameter("dizhi_sex");//获取post参数
+		String dizhi_phone=request.getParameter("dizhi_phone");//获取post参数
+		String dizhi_dizhi=request.getParameter("dizhi_dizhi");//获取post参数
+		String dizhi_menpai=request.getParameter("dizhi_menpai");//获取post参数
+		Integer dizhi_select=1;
 		
+		Dizhi dizhi= new Dizhi();
+		dizhi.setDizhi_user(dizhi_user);
+		dizhi.setDizhi_name(dizhi_name);
+		dizhi.setDizhi_sex(dizhi_sex);
+		dizhi.setDizhi_phone(dizhi_phone);
+		dizhi.setDizhi_dizhi(dizhi_dizhi);
+		dizhi.setDizhi_menpai(dizhi_menpai);
+		dizhi.setDizhi_select(dizhi_select);
+		dizhi.setDizhi_zh(dizhi_zh);
+		dizhiService.insertDizhi(dizhi);//插入地址
+		
+	}
+	
+	/*
+	 * xcx dizhi_updata中index.js 
+	 * 旧地址的修改
+	 */
+	@RequestMapping("/dizhi_updata")
+	public void dizhi_updata(HttpServletRequest request){
+		Integer id=Integer.parseInt(request.getParameter("id"));
+		Integer dizhi_zh=Integer.parseInt(request.getParameter("dizhi_zh"));//dizhi_zh
+		
+		String dizhi_name=request.getParameter("dizhi_name");//获取post参数
+		String dizhi_sex=request.getParameter("dizhi_sex");//获取post参数
+		String dizhi_phone=request.getParameter("dizhi_phone");//获取post参数
+		String dizhi_dizhi=request.getParameter("dizhi_dizhi");//获取post参数
+		String dizhi_menpai=request.getParameter("dizhi_menpai");//获取post参数
+		
+		Dizhi dizhi= new Dizhi();
+		dizhi.setId(id);
+		dizhi.setDizhi_name(dizhi_name);
+		dizhi.setDizhi_sex(dizhi_sex);
+		dizhi.setDizhi_phone(dizhi_phone);
+		dizhi.setDizhi_dizhi(dizhi_dizhi);
+		dizhi.setDizhi_menpai(dizhi_menpai);
+		dizhi.setDizhi_zh(dizhi_zh);
+		
+		dizhiService.setateById(dizhi);
 	}
 
 	

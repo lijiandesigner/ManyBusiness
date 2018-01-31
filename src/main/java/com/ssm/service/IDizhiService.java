@@ -16,10 +16,22 @@ public interface IDizhiService {
 	
 	
 	//----------------hee*start----------------------------------------------
+	
 	/* 根据 dizhi_zh和dizhi_user 获取用户对应的 地址 List对象
      * dizhi_zh Integer
      * dizhi_user Integer
      * */
 	public List<Dizhi> selectDizhiByZhUser(Integer dizhi_zh,Integer dizhi_user);
+	
+	/* dizhi_zh dizhi_user 确定数据 把 dizhi_select 更新为0
+     * dizhi_zh Integer
+     * dizhi_user Integer
+     * */
+	public void setByBuff(Integer dizhi_zh,Integer dizhi_user);
+	
+	/* 更新  dizhi_name dizhi_sex dizhi_phone dizhi_dizhi dizhi_menpai 根据 id
+     * */
+	public void setateById(Dizhi dizhi);
+	
 	//----------------hee*end------------------------------------------------
 }

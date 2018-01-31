@@ -11,7 +11,7 @@
 		<result column="dizhi_menpai" property="dizhi_menpai" jdbcType="VARCHAR" />
 		<result column="dizhi_select" property="dizhi_select" jdbcType="VARCHAR" />
 		<result column="dizhi_zh" property="dizhi_zh" jdbcType="INTEGER" />
-	</resultMap>
+	</resultMap> 
 	
 	<sql id="Base_Column_List">
 		id,dizhi_user,dizhi_name,dizhi_sex,dizhi_phone,dizhi_dizhi,dizhi_menpai,dizhi_select,dizhi_zh
@@ -29,6 +29,9 @@
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				id,
+			</if>
+			<if test="dizhi_user != null">
+				dizhi_user,
 			</if>
 			<if test="dizhi_name != null">
 				dizhi_name,
@@ -56,6 +59,9 @@
 			<if test="id != null">
 				#{id,jdbcType=INTEGER},
 			</if>
+			<if test="dizhi_user != null">
+				#{dizhi_user,jdbcType=INTEGER},
+			</if>
 			<if test="dizhi_name != null">
 				#{dizhi_name,jdbcType=VARCHAR},
 			</if>
@@ -72,7 +78,7 @@
 				#{dizhi_menpai,jdbcType=VARCHAR},
 			</if>
 			<if test="dizhi_select != null">
-				#{dizhi_select,jdbcType=VARCHAR},
+				#{dizhi_select,jdbcType=INTEGER},
 			</if>
 			<if test="dizhi_zh != null">
 				#{dizhi_zh,jdbcType=INTEGER},
@@ -89,25 +95,10 @@
 		from dizhi
 		<where>
 		 <if test="dizhi_zh != null ">
-		     and dizhi_zh = #{dizhi_zh,jdbcType=INTEGER},
-		 </if>
-		 <if test="dizhi_user != null">
-		     and dizhi_user = #{dizhi_user,jdbcType=VARCHAR},
-		 </if>
-		</where>
-	</select>
-	
-	<!-- 根据 dizhi_zh和dizhi_user dizhi_select 获取用户对应的 地址 List对象  -->
-	<select id="aaa" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List" />
-		from dizhi
-		<where> 
-		 <if test="dizhi_zh != null ">
 		     and dizhi_zh = #{dizhi_zh,jdbcType=INTEGER}
 		 </if>
 		 <if test="dizhi_user != null">
-		     and dizhi_user = #{dizhi_user,jdbcType=VARCHAR}
+		     and dizhi_user = #{dizhi_user,jdbcType=INTEGER}
 		 </if>
 		 <if test="dizhi_select != null">
 		     and dizhi_select = #{dizhi_select,jdbcType=INTEGER}
@@ -115,6 +106,42 @@
 		</where>
 	</select>
 	
+	<!-- 根据 dizhi_zh dizhi_user 确定数据 把 dizhi_select 改为0-->
+	<update id="updateByBuff" parameterType="com.ssm.dto.Dizhi" >
+		update dizhi
+		<set>
+			dizhi_select = 0
+		</set>
+		where dizhi_zh=#{dizhi_zh,jdbcType=INTEGER}
+			  and dizhi_select = 1
+		 <if test="dizhi_user != null ">
+		     and dizhi_user = #{dizhi_user,jdbcType=INTEGER}
+		 </if>
+	</update>
+	
+	<!-- 更新  dizhi_name dizhi_sex dizhi_phone dizhi_dizhi dizhi_menpai 根据 id -->
+	<update id="updateById" parameterType="com.ssm.dto.Dizhi" >
+		update dizhi
+		<set>
+			<if test="dizhi_name != null">
+				dizhi_name = #{dizhi_name,jdbcType=VARCHAR},
+			</if>
+			<if test="dizhi_sex != null">
+				dizhi_sex = #{dizhi_sex,jdbcType=VARCHAR},
+			</if>
+			<if test="dizhi_phone != null">
+				dizhi_phone = #{dizhi_phone,jdbcType=VARCHAR},
+			</if>
+			<if test="dizhi_dizhi != null">
+				dizhi_dizhi = #{dizhi_dizhi,jdbcType=VARCHAR},
+			</if>
+			<if test="dizhi_menpai != null">
+				dizhi_menpai = #{dizhi_menpai,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where dizhi_zh=#{dizhi_zh,jdbcType=INTEGER}
+			  and id =#{id,jdbcType=INTEGER}
+	</update>
 	
 	<!-- ***************************hee*end******************************* -->
 </mapper>
