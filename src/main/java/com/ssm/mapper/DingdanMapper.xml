@@ -79,6 +79,9 @@
 			<if test="dingdan_shops != null">
 				dingdan_shops,
 			</if>
+			<if test="dingdan_goods!= null">
+				dingdan_goods,
+			</if>
 			<if test="dingdan_moneys != null">
 				dingdan_moneys,
 			</if>
@@ -108,7 +111,6 @@
 			<if test="id != null">
 				#{id,jdbcType=INTEGER},
 			</if>
-	
 			<if test="dingdan_openid != null">
 				#{dingdan_openid,jdbcType=VARCHAR},
 			</if>
@@ -119,7 +121,7 @@
 				#{dingdan_name,jdbcType=VARCHAR},
 			</if>
 			<if test="dingdan_sex != null">
-				#{dingdan_sex,jdbcType=INTEGER},
+				#{dingdan_sex,jdbcType=VARCHAR},
 			</if>
 			<if test="dingdan_dizhi != null">
 				#{dingdan_dizhi,jdbcType=VARCHAR},
@@ -136,8 +138,8 @@
 			<if test="dingdan_shops != null">
 				#{dingdan_shops,jdbcType=VARCHAR},
 			</if>
-			<if test="dingdan_spec != null">
-				#{dingdan_spec,jdbcType=VARCHAR},
+			<if test="dingdan_goods != null">
+				#{dingdan_goods,jdbcType=VARCHAR},
 			</if>
 			<if test="dingdan_moneys != null">
 				#{dingdan_moneys,jdbcType=VARCHAR},
@@ -149,7 +151,7 @@
 				#{dingdan_profit,jdbcType=INTEGER},
 			</if>
 			<if test="dingdan_buff != null">
-				#{dingdan_buff,jdbcType=VARCHAR},
+				#{dingdan_buff,jdbcType=INTEGER},
 			</if>
 			<if test="dingdan_table != null">
 				#{dingdan_table,jdbcType=INTEGER},
@@ -160,12 +162,38 @@
 			<if test="dingdan_moneys != null">
 				#{dingdan_time_e,jdbcType=INTEGER},
 			</if>
-			<if test="dingdan_money != null">
-				#{dingdan_money,jdbcType=INTEGER},
-			</if>
 			<if test="dingdan_zh != null">
 				#{dingdan_zh,jdbcType=INTEGER},
 			</if>
 		</trim>
 	</insert>
+	
+	<!-- ***************************hee*start***************************** -->
+	
+	<!-- 查询指定 用户订单    -->
+	<!-- 
+	select * from dingdan where dingdan_zh=1 
+	and dingdan_openid ='ousEf0YdCYgPBMco5t-GM_J-DHy8' 
+	order by dingdan_time_s 
+	desc limit 5;
+	-->	
+	<select id="selectAllByOpenid" resultMap="BaseResultMapDingdan">
+		select
+		<include refid="Base_Column_List" />
+		from dingdan
+		<where> 
+		 <if test="dingdan_zh != null ">
+		     and dingdan_zh = #{dingdan_zh,jdbcType=INTEGER}
+		 </if>
+		 <if test="dingdan_openid != null">
+		     and dingdan_openid = #{dingdan_openid,jdbcType=VARCHAR}
+		 </if>
+		</where>
+		order by dingdan_time_s desc
+		<if test="fenye != null">
+		     limit 10
+		</if>
+	</select>
+	
+	<!-- ***************************hee*end***************************** -->
 </mapper>

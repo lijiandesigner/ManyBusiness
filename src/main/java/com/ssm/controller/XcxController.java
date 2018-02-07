@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ssm.dto.Brand;
+import com.ssm.dto.Dingdan;
 import com.ssm.dto.Dizhi;
 import com.ssm.dto.Food;
 import com.ssm.dto.Lunbo;
 import com.ssm.dto.User;
 import com.ssm.dto.Zh;
 import com.ssm.service.IBrandService;
+import com.ssm.service.IDingdanService;
 import com.ssm.service.IDizhiService;
 import com.ssm.service.IFoodService;
 import com.ssm.service.ILunboService;
@@ -49,6 +51,9 @@ public class XcxController {
 	
 	@Resource    
     private IDizhiService dizhiService;
+	
+	@Resource    
+    private IDingdanService dingdanService;
 	
 	
 	
@@ -236,7 +241,7 @@ public class XcxController {
 	}
 	
 	/*
-	 * xcx category.js 
+	 * xcx category.js  peisong dizhi_select
 	 * 获取所有 地址
 	 */
 	@RequestMapping("/dizhi_select")
@@ -279,7 +284,7 @@ public class XcxController {
 		User user_id=userService.getUserByOpenidUser_zh(openid,dizhi_zh);//获取dizhi_user
 		Integer dizhi_user=user_id.getId();//获取dizhi_user
 		//根据 user_id 把 dizhi_select=1 改为0
-		dizhiService.setByBuff(dizhi_zh, dizhi_user);
+		dizhiService.setByBuff(0,dizhi_zh, dizhi_user);
 		
 		String dizhi_name=request.getParameter("dizhi_name");//获取post参数
 		String dizhi_sex=request.getParameter("dizhi_sex");//获取post参数
@@ -327,7 +332,122 @@ public class XcxController {
 		
 		dizhiService.setateById(dizhi);
 	}
+	
+	/*
+	 * xcx dizhi_updata中index.js 
+	 * 旧地址的删除
+	 */
+	@RequestMapping("/dizhi_dell")
+	public void dizhi_dell(HttpServletRequest request){
+		Integer id=Integer.parseInt(request.getParameter("id"));
+		Integer dizhi_zh=Integer.parseInt(request.getParameter("dizhi_zh"));//dizhi_zh
+		//被删除的 地址 的状态  不是选中直接删，是选中 并且 地址数大于1
+		System.out.println("删除成功");
+		dizhiService.shanById(dizhi_zh,id);
+	}
+	
+	/*
+	 * xcx category.js 
+	 * 更新选中 状态
+	 */
+	@RequestMapping("/dizhi_buff")
+	public void dizhi_buff(HttpServletRequest request){
+		Integer id=Integer.parseInt(request.getParameter("id"));
+		Integer dizhi_zh=Integer.parseInt(request.getParameter("zh"));//dizhi_zh
+		String openid=request.getParameter("openid");//获取post参数		
+		//实现 新添加的 地址为选中 状态  要把原来的 选中状态关掉
+		User user_id=userService.getUserByOpenidUser_zh(openid,dizhi_zh);//获取dizhi_user
+		Integer dizhi_user=user_id.getId();//获取dizhi_user
+		//根据 user_id 和 id 把 选中1->0
+		dizhiService.setByBuff(0,dizhi_zh, dizhi_user);
+		
+		//id 把  没有选中0->1
+		dizhiService.setByBuffId(1,dizhi_zh,id);
+	}
+	
+	/*
+	 * xcx category.js
+	 * 获取 订单 
+	 */
+	@RequestMapping("/dingdan_select")
+	public List<Dingdan> dingdan_select(HttpServletRequest request){
+//		Integer dingdan_zh=Integer.parseInt(request.getParameter("zh"));//dizhi_zh
+//		String openid=request.getParameter("openid");//获取post参数
+//		String fenye=request.getParameter("fenye");//获取post参数
+		Integer dingdan_zh=1;
+		String openid="ousEf0YdCYgPBMco5t-GM_J-DHy8";
+		//查前十条 和 所有数据 在一个方法中 通过 fenye来控制
+		String fenye=null;
+		
+		List<Dingdan> dingdan=null;
+		if(fenye!=null) {
+			dingdan=dingdanService.getAllByOpenid(dingdan_zh,openid,fenye);
+			//return dingdan;
+		}else{
+			dingdan=dingdanService.getAllByOpenid(dingdan_zh,openid,null);
+			//return dingdan;
+		}
+		
+		//修正 为前台 所需 数据
+		for(Dingdan list : dingdan){
+			System.out.println(list.getDingdan_name());
+		}
+		
+		return dingdan;
+	}
+	
+	/*
+	 * peisong .js
+	 * 添加 新订单
+	 */
+	@RequestMapping("/add_order")
+	public void add_order(HttpServletRequest request){
+		Integer dingdan_zh=Integer.parseInt(request.getParameter("zh"));
+		String dingdan_openid=request.getParameter("openid");
+		String dingdan_phone=request.getParameter("phone");
+		String dingdan_name=request.getParameter("name");
+		String dingdan_sex=request.getParameter("sex");
+		String dingdan_dizhi=request.getParameter("dizhi");
+		String dingdan_menpai=request.getParameter("menpai");
+		String dingdan_remark=request.getParameter("remark");
+		long time_now= new Date().getTime()/1000;//当前 时间戳
+		Integer dingdan_num=(int) time_now;
+		String dingdan_shops=request.getParameter("shops_arr");
+		String dingdan_goods=request.getParameter("goods_arr");
+		String dingdan_moneys=request.getParameter("moneys_arr");
+		Integer dingdan_money=Integer.parseInt(request.getParameter("money"))/1000;
+		Integer dingdan_profit=0;//利润0
+		Integer dingdan_buff=0;// 正常订单 已支付
+		Integer dingdan_table=0;// 判别是店内还是 外卖 通过是否 携带 桌子号
+		if(Integer.parseInt(request.getParameter("table"))!=0) {
+			dingdan_table=Integer.parseInt(request.getParameter("table"));
+		}
+		Integer dingdan_time_s=(int) time_now;
+		Integer dingdan_time_e=0;
+		
+		Dingdan dingdan= new Dingdan();
+		dingdan.setDingdan_openid(dingdan_openid);
+		dingdan.setDigndan_phone(dingdan_phone);
+		dingdan.setDingdan_name(dingdan_name);
+		dingdan.setDingdan_sex(dingdan_sex);
+		dingdan.setDingdan_dizhi(dingdan_dizhi);
+		dingdan.setDingdan_menpai(dingdan_menpai);
+		dingdan.setDingdan_remark(dingdan_remark);
+		dingdan.setDingdan_num(dingdan_num);
+		dingdan.setDingdan_shops(dingdan_shops);
+		dingdan.setDingdan_goods(dingdan_goods);
+		dingdan.setDingdan_moneys(dingdan_moneys);
+		dingdan.setDingdan_money(dingdan_money);
+		dingdan.setDingdan_profit(dingdan_profit);
+		dingdan.setDingdan_buff(dingdan_buff);
+		dingdan.setDingdan_table(dingdan_table);
+		dingdan.setDingdan_time_s(dingdan_time_s);
+		dingdan.setDingdan_time_e(dingdan_time_e);
+		dingdan.setDingdan_zh(dingdan_zh);
 
+		dingdanService.insertDingdan(dingdan);//插入地址
+		
+	}
 	
 	//Get 方法封装
 	public static String doGet(String url) throws Exception {    

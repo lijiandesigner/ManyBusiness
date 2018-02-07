@@ -25,11 +25,15 @@ public interface IDizhiDao {
      * dizhi_zh Integer
      * dizhi_user Integer
      * */
-	public void updateByBuff(@Param("dizhi_zh")Integer dizhi_zh,@Param("dizhi_user")Integer dizhi_user);
+	public void updateByBuff(@Param("dizhi_select")Integer dizhi_select,@Param("dizhi_zh")Integer dizhi_zh,@Param("dizhi_user")Integer dizhi_user,@Param("id")Integer id);
 	
 	/* 更新  dizhi_name dizhi_sex dizhi_phone dizhi_dizhi dizhi_menpai 根据 id
      * */
 	public void updateById(Dizhi dizhi);
+	
+	/* 删除  地址 根据 id 和dizhi_zh
+     * */
+	public void deleteById(@Param("dizhi_zh")Integer dizhi_zh,@Param("id")Integer id);
 	
 	//----------------hee*end------------------------------------------------
 }

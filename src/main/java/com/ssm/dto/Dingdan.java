@@ -35,8 +35,8 @@ public class Dingdan {
 	public String getDingdan_phone() {
 		return dingdan_phone;
 	}
-	public void setDigndan_phone(String digndan_phone) {
-		this.dingdan_phone = digndan_phone;
+	public void setDigndan_phone(String dingdan_phone) {
+		this.dingdan_phone = dingdan_phone;
 	}
 	public String getDingdan_name() {
 		return dingdan_name;

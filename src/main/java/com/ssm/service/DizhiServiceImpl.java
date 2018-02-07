@@ -43,8 +43,13 @@ public class DizhiServiceImpl implements IDizhiService{
      * dizhi_user Integer
      * */
 	@Override 
-	public void setByBuff(Integer dizhi_zh,Integer dizhi_user){
-		dizhiDao.updateByBuff(dizhi_zh,dizhi_user);
+	public void setByBuff(Integer dizhi_select,Integer dizhi_zh,Integer dizhi_user){
+		dizhiDao.updateByBuff(dizhi_select,dizhi_zh,dizhi_user,null); 
+	}
+	//选中 状态 0->1
+	@Override 
+	public void setByBuffId(Integer dizhi_select,Integer dizhi_zh,Integer id) {
+		dizhiDao.updateByBuff(dizhi_select,dizhi_zh,null,id);
 	}
 	
 	/* 更新  dizhi_name dizhi_sex dizhi_phone dizhi_dizhi dizhi_menpai 根据 id
@@ -52,6 +57,13 @@ public class DizhiServiceImpl implements IDizhiService{
 	@Override 
 	public void setateById(Dizhi dizhi){
 		dizhiDao.updateById(dizhi);
+	}
+	
+	/* 删除  地址 根据 id 和dizhi_zh
+     * */
+	@Override 
+	public void shanById(Integer dizhi_zh,Integer id){
+		dizhiDao.deleteById(dizhi_zh,id);
 	}
 	
 	//----------------hee*end------------------------------------------------

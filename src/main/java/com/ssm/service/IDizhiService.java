@@ -27,11 +27,16 @@ public interface IDizhiService {
      * dizhi_zh Integer
      * dizhi_user Integer
      * */
-	public void setByBuff(Integer dizhi_zh,Integer dizhi_user);
+	public void setByBuff(Integer dizhi_select,Integer dizhi_zh,Integer dizhi_user);
+	public void setByBuffId(Integer dizhi_select,Integer dizhi_zh,Integer id);
 	
 	/* 更新  dizhi_name dizhi_sex dizhi_phone dizhi_dizhi dizhi_menpai 根据 id
      * */
 	public void setateById(Dizhi dizhi);
+	
+	/* 删除  地址 根据 id 和dizhi_zh
+     * */
+	public void shanById(Integer dizhi_zh,Integer id);
 	
 	//----------------hee*end------------------------------------------------
 }
